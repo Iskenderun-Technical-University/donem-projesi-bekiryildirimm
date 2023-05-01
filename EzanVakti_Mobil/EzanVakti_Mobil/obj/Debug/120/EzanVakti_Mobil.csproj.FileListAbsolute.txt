@@ -1548,3 +1548,5 @@ C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanV
 C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\drawable\splash_screen.xml
 C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\drawable\iste_arma.png
 C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\android\src\crc64715ccd8b43db7812\SplashActivity1.java
+C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\drawable\iste_logo.png
+C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\drawable\iste__logo.png
