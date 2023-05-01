@@ -2,7 +2,7 @@ package crc64715ccd8b43db7812;
 
 
 public class GirişEkrani
-	extends android.app.Activity
+	extends androidx.appcompat.app.AppCompatActivity
 	implements
 		mono.android.IGCUserPeer
 {
@@ -22,6 +22,15 @@ public class GirişEkrani
 		super ();
 		if (getClass () == GirişEkrani.class) {
 			mono.android.TypeManager.Activate ("EzanVakti_Mobil.GirişEkrani, EzanVakti_Mobil", "", this, new java.lang.Object[] {  });
+		}
+	}
+
+
+	public GirişEkrani (int p0)
+	{
+		super (p0);
+		if (getClass () == GirişEkrani.class) {
+			mono.android.TypeManager.Activate ("EzanVakti_Mobil.GirişEkrani, EzanVakti_Mobil", "System.Int32, mscorlib", this, new java.lang.Object[] { p0 });
 		}
 	}
 

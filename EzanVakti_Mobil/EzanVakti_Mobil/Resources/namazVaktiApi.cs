@@ -19,10 +19,10 @@ namespace EzanVakti_Mobil.Resources
 {
     public class namazVaktiApi
     {
-        public string enlem;
-        public string boylam;
-        public int ay;
-        public int yil;
+        public static string enlem;
+        public static string boylam;
+        public static int ay;
+        public static int yil;
         veritabani vt;
         public namazVaktiApi()
         {
@@ -30,15 +30,15 @@ namespace EzanVakti_Mobil.Resources
         }
         public namazVaktiApi(string enlem,string boylam,int ay, int yil)
         {
-            this.enlem = enlem;
-            this.boylam = boylam;
-            this.ay = ay;
-            this.yil = yil;
+            enlem = enlem;
+            boylam = boylam;
+            ay = ay;
+            yil = yil;
         }
         public namazVaktiApi(string enlem,string boylam)
         {
-            this.enlem = enlem;
-            this.boylam = boylam;
+            enlem = enlem;
+            boylam = boylam;
         }
         public static string ApiLink(string enlem,string boylam,int yil,int ay)
         {
@@ -129,7 +129,7 @@ namespace EzanVakti_Mobil.Resources
 
         }
 
-        public async void EzanSqlite()
+        public async Task EzanSqlite()
         {
             vt = new veritabani();
             vt.createDataBase("NamazVakti.db");
