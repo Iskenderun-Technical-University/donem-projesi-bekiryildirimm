@@ -70,6 +70,8 @@
     <Compile Include="Resources\EzanVakitleri\EzanVakti.cs" />
     <Compile Include="Resources\namazVaktiApi.cs" />
     <Compile Include="Resources\namazVaktiData.cs" />
+    <Compile Include="Resources\RecycleAdapter.cs" />
+    <Compile Include="Resources\RecyclerViewAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Services\ClientModel.cs" />

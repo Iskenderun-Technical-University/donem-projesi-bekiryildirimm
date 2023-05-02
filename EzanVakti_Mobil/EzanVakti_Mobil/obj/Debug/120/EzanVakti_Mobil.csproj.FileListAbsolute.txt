@@ -1550,3 +1550,7 @@ C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanV
 C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\android\src\crc64715ccd8b43db7812\SplashActivity1.java
 C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\drawable\iste_logo.png
 C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\drawable\iste__logo.png
+C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\android\src\crc6470bb5d874e814864\RecViewHolder.java
+C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\android\src\crc6470bb5d874e814864\RecycleAdapter.java
+C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\android\src\crc6470bb5d874e814864\RecyclerViewAdapter.java
+C:\Users\manas\Desktop\veritabanı_destekli_ezanvaktimobil\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\android\src\crc6470bb5d874e814864\ViewHolder.java
