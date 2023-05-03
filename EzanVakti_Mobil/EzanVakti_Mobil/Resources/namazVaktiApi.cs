@@ -4,7 +4,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using EzanVakti_Mobil.Resources.Ayarlar;
 using EzanVakti_Mobil.Resources.EzanVakitleri;
+using EzanVakti_Mobil.Resources.sehir;
 using EzanVakti_Mobil.Resources.VeriTabani;
 using Java.Lang;
 using Picasso.Services;
@@ -23,6 +25,7 @@ namespace EzanVakti_Mobil.Resources
         public static string boylam;
         public static int ay;
         public static int yil;
+        public static string city;
         veritabani vt;
         public namazVaktiApi()
         {
@@ -42,15 +45,25 @@ namespace EzanVakti_Mobil.Resources
         }
         public static string ApiLink(string enlem,string boylam,int yil,int ay)
         {
-              return $"https://api.aladhan.com/v1/calendar?latitude={enlem}&longitude={boylam}&&month={ay}&year={yil}&tune=0,0,-7,5,4,6,6,0";
+              return $"https://api.aladhan.com/v1/calendar?latitude={enlem}&longitude={boylam}&&month={ay}&year={yil}&adjustment=1&tune=0,0,-7,5,4,6,6,0";
            // return $"https://api.aladhan.com/v1/calendar/2023/4?latitude=37.017448347669024&longitude=37.34085951963926&method=13&month=4&year=2023";
         }
-
+        public static string GpsApi(string enlem, string boylam)
+        {
+            return $"https://api.openweathermap.org/geo/1.0/reverse?lat={enlem}&lon={boylam}&local_names=tr&appid=f0a46c1cf8fe28d014ed0783f9884b23";
+        }
         private async Task<EzanVakti> EzanApi()
         {
             var ezanapi = ApiLink(enlem, boylam, yil, ay);
             var httpService = new CLientModel();
             var result = await httpService.ProcessApi<EzanVakti>(ezanapi);
+            return result;
+        }
+        private async Task<List<GpsSehir>> SehirApi()
+        {
+            var sehirapi = GpsApi(enlem, boylam);
+            var httpService = new CLientModel();
+            var result = await httpService.ProcessApi<List<GpsSehir>>(sehirapi);
             return result;
         }
         public async Task EzanApiCall(List<namazVaktiData> ls)
@@ -135,10 +148,34 @@ namespace EzanVakti_Mobil.Resources
             vt.createDataBase("NamazVakti.db");
             List<namazVaktiData> list = new List<namazVaktiData>();
             await EzanApiCall(list);
-            foreach(var item in list)
+            var cityRes = await SehirApi();
+            foreach (var item in cityRes)
+            {
+                namazVaktiApi.city = item.name;
+            }
+            foreach (var item in list)
             {
                 vt.InsertIntoTableEzanVakti(item, "NamazVakti.db");
             }
+        }
+        public void CurrentInsertTable()
+        {
+            CurrentDatabase cdb=new CurrentDatabase();
+            Current current=new Current();
+            current.year = yil;
+            current.month = ay;
+            current.Sehir = city;
+            cdb.createDataBaseCurrent();
+            cdb.InsertIntoTableCurrent(current);
+        }
+        public void CurrentUpdateTable()
+        {
+            CurrentDatabase cdb = new CurrentDatabase();
+            Current current = new Current();
+            current.year = yil;
+            current.month = ay;
+            current.Sehir = city;
+            cdb.UpdateTableCurrent(current);
         }
     }
 }

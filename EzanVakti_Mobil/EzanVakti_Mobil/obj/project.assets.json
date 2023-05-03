@@ -2835,11 +2835,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\manas\\Desktop\\veritabanı_destekli_ezanvaktimobil\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj",
+      "projectUniqueName": "C:\\Users\\manas\\Desktop\\EzanVakti_mobil_veriTabaniDestekli\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj",
       "projectName": "EzanVakti_Mobil",
-      "projectPath": "C:\\Users\\manas\\Desktop\\veritabanı_destekli_ezanvaktimobil\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj",
+      "projectPath": "C:\\Users\\manas\\Desktop\\EzanVakti_mobil_veriTabaniDestekli\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj",
       "packagesPath": "C:\\Users\\manas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\manas\\Desktop\\veritabanı_destekli_ezanvaktimobil\\EzanVakti_Mobil\\EzanVakti_Mobil\\obj\\",
+      "outputPath": "C:\\Users\\manas\\Desktop\\EzanVakti_mobil_veriTabaniDestekli\\EzanVakti_Mobil\\EzanVakti_Mobil\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

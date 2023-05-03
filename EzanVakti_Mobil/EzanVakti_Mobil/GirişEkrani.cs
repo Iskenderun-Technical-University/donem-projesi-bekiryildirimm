@@ -41,7 +41,7 @@ namespace EzanVakti_Mobil
                 namazVaktiApi namazVakti = new namazVaktiApi();
  
                await namazVakti.EzanSqlite();
-              
+               namazVakti.CurrentInsertTable();
                 StartActivity(new Intent(ApplicationContext, typeof(MainActivity)));
                 this.Finish();
             };

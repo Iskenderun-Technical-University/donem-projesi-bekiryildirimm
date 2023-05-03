@@ -22,6 +22,7 @@ namespace EzanVakti_Mobil.Resources
         public TextView weeklyIkindi { get; set; }
         public TextView weeklyAksam { get; set; }
         public TextView weeklyYatsi { get; set; }
+        public View cizgi { get; set; }
         public RecViewHolder(View view):base(view)
         {
             //var view = convertView ?? activity.LayoutInflater.Inflate(Resource.Layout.item_weekly_prayer_time, parent, false);
@@ -32,15 +33,16 @@ namespace EzanVakti_Mobil.Resources
              weeklyIkindi = view.FindViewById<TextView>(Resource.Id.itemWeeklyIkindi);
              weeklyAksam = view.FindViewById<TextView>(Resource.Id.itemWeeklyAksam);
             weeklyYatsi = view.FindViewById<TextView>(Resource.Id.itemWeeklyYatsi);
-          /*  HaftaninGunu.Text = data[position].GregHaftaninGunuKisa;
-            weeklyImsak.Text = data[position].imsak;
-            weeklyGunes.Text = data[position].gunes;
-            weeklyOgle.Text = data[position].ogle;
-            weeklyIkindi.Text = data[position].ikindi;
-            weeklyAksam.Text = data[position].aksam;
-            weeklyYatsi.Text = data[position].yatsi;
-            return view;
-          */
+            cizgi= view.FindViewById<View>(Resource.Id.itemWeeklyLine);
+            /*  HaftaninGunu.Text = data[position].GregHaftaninGunuKisa;
+              weeklyImsak.Text = data[position].imsak;
+              weeklyGunes.Text = data[position].gunes;
+              weeklyOgle.Text = data[position].ogle;
+              weeklyIkindi.Text = data[position].ikindi;
+              weeklyAksam.Text = data[position].aksam;
+              weeklyYatsi.Text = data[position].yatsi;
+              return view;
+            */
         }
     }
 
@@ -70,6 +72,11 @@ namespace EzanVakti_Mobil.Resources
             r.weeklyIkindi.Text = data[position].ikindi;
             r.weeklyAksam.Text = data[position].aksam;
             r.weeklyYatsi.Text = data[position].yatsi;
+            
+            if (position == 0)
+            {
+                r.cizgi.Visibility = ViewStates.Visible;
+            }
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

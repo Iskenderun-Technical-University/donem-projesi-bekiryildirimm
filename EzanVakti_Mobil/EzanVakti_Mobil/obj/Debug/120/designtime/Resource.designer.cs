@@ -14,7 +14,7 @@ namespace EzanVakti_Mobil
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.0.0.73")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.2.0.93")]
 	public partial class Resource
 	{
 		
@@ -5016,10 +5016,10 @@ namespace EzanVakti_Mobil
 			public const int mainClytDateTime = 2131230959;
 			
 			// aapt resource value: 0x7F0800F0
-			public const int mainTvLocalTime = 2131230960;
+			public const int mainHicriTakvim = 2131230960;
 			
 			// aapt resource value: 0x7F0800F1
-			public const int mainTvLocationHijriDate = 2131230961;
+			public const int mainTvLocalTime = 2131230961;
 			
 			// aapt resource value: 0x7F0800F2
 			public const int mainTvLocationRemainingTimeStr = 2131230962;

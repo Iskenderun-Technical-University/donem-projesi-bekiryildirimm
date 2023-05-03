@@ -1573,8 +1573,8 @@ int id listMode 0x7f0800ec
 int id list_item 0x7f0800ed
 int id mainAppbar 0x7f0800ee
 int id mainClytDateTime 0x7f0800ef
-int id mainTvLocalTime 0x7f0800f0
-int id mainTvLocationHijriDate 0x7f0800f1
+int id mainHicriTakvim 0x7f0800f0
+int id mainTvLocalTime 0x7f0800f1
 int id mainTvLocationRemainingTimeStr 0x7f0800f2
 int id mainYerelSaat 0x7f0800f3
 int id masked 0x7f0800f4

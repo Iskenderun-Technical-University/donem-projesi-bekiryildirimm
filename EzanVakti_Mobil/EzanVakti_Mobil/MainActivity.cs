@@ -73,7 +73,7 @@ namespace EzanVakti_Mobil
 
             foreach (var item in data)
             {
-                if (item.GregDay == bugun.Day)
+                if (item.GregDay == bugun.Day&&item.GregMonthNumber==bugun.Month)
                 {
                     ezan = item;
                 }
@@ -86,7 +86,7 @@ namespace EzanVakti_Mobil
             FindViewById<TextView>(Resource.Id.tvIkindi).Text = ezan.ikindi;
             FindViewById<TextView>(Resource.Id.tvAksam).Text = ezan.aksam;
             FindViewById<TextView>(Resource.Id.tvYatsi).Text = ezan.yatsi;
-
+            FindViewById<TextView>(Resource.Id.mainHicriTakvim).Text = " " + ezan.HijriDay + "\n" + ezan.HijriMonthEn + "\n" + ezan.HijriYear;
             rcData = FindViewById<RecyclerView>(Resource.Id.recyclerViewHaftalikVakitler);
             /*ada = new RecycleAdapter(this, data);
              rcData.SetAdapter(ada);*/
@@ -115,7 +115,7 @@ namespace EzanVakti_Mobil
 
         foreach(var item in data)
             {
-                if(bugun.Day<=item.GregDay&&bugun.Day+7>=item.GregDay)
+                if(bugun.Day<=item.GregDay&&bugun.Day+7>=item.GregDay&&bugun.Month==item.GregMonthNumber)
                     weeklydata.Add(item);
             }
             ada = new RecycleAdapter(this, weeklydata);
