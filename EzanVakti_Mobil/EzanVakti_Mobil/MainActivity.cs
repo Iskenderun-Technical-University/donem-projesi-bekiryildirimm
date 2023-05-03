@@ -86,7 +86,7 @@ namespace EzanVakti_Mobil
             FindViewById<TextView>(Resource.Id.tvIkindi).Text = ezan.ikindi;
             FindViewById<TextView>(Resource.Id.tvAksam).Text = ezan.aksam;
             FindViewById<TextView>(Resource.Id.tvYatsi).Text = ezan.yatsi;
-            FindViewById<TextView>(Resource.Id.mainHicriTakvim).Text = " " + ezan.HijriDay + "\n" + ezan.HijriMonthEn + "\n" + ezan.HijriYear;
+            FindViewById<TextView>(Resource.Id.mainHicriTakvim).Text = " " + ezan.HijriDay + "\n" + ezan.HijriMonthTr + "\n" + ezan.HijriYear;
             rcData = FindViewById<RecyclerView>(Resource.Id.recyclerViewHaftalikVakitler);
             /*ada = new RecycleAdapter(this, data);
              rcData.SetAdapter(ada);*/

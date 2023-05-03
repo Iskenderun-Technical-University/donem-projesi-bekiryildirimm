@@ -69,6 +69,7 @@ namespace EzanVakti_Mobil.Resources
         public async Task EzanApiCall(List<namazVaktiData> ls)
         {
             string[] Aylar = { "Ocak", "Şubat", "Mart", "Nisan", "Mayis", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasim", "Aralik" };//ay isimlerini string olarak tutan dizi 
+            string[] HicriAy = { "Muharrem", "Safer", "Rebiülevvel", "Rebiülahir", "Cemaziyelevvel", "Cemaziyelahir", "Recep", "Şaban", "Ramazan", "Şevval", "Zilkade", "Zilhicce" };
             string[] GunlerKisa = { "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt", "Paz" };//haftanın günlerinin kısaltılmış isimlerini tutan dizi
             string[] GunlerUzun = { "Pazartesi", "Sali", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar" };//haftanın günlerinin isimlerini tutan dizi
             string gunUzun = "";//gün ismini tutan string değişken
@@ -136,6 +137,7 @@ namespace EzanVakti_Mobil.Resources
                     HijriWeekdayEn=item.date.hijri.weekday.en,
                     HijriMonthNumber=item.date.hijri.month.number,
                     HijriMonthEn= item.date.hijri.month.en,
+                    HijriMonthTr = HicriAy[(item.date.hijri.month.number)-1],
                     HijriYear=item.date.hijri.year,
                 });
             }

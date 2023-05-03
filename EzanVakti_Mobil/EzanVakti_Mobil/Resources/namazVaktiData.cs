@@ -38,6 +38,7 @@ namespace EzanVakti_Mobil.Resources
         public string HijriWeekdayEn { get; set; }
         public int HijriMonthNumber { get; set; }
         public string HijriMonthEn { get; set; }
+        public string HijriMonthTr { get; set; }
         public string HijriYear { get; set; }
     }
 }
