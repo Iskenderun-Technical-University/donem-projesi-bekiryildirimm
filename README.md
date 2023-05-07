@@ -9,7 +9,7 @@ Akıllı telefonlar insanların hayatına çok kapsamlı bir şekilde nüfus etm
 
 Mobil uygulama geliştirmenin çeşitli avantajları vardır; işletim sistemi özelliklerine tam erişim, gelişmiş kullanıcı arayüzü, kullanıcı deneyimini geliştiren kamera, sensörler gibi mobil platform özellik setlerine erişim..
 
-Ezan Vakitleri-Kıble Pusulası Mobil Uygulaması:
+Ezan Vakitleri Mobil Uygulaması:
 
 İslam dini başlangıçtan beri ilim ve bilimi güçlü bir şekilde teşvik etmiştir. Yaradan bizden içimizde yaşadığımız dünyayı anlamamızı istemektedir. İslam dinine mensup bir bireyin ibadet etmesi için bile astronomi ve matematik bilimlerinden yararlanması gerekir, namaz kılınacak vakitlerin belirlenmesi ve kıble yönünün tayin edilmesi.
 
