@@ -5,7 +5,7 @@ GSMA Intelligence verilerine göre Nisan 2023 itibariyle, dünya genelinde 5.45 
 Mobil telefonlar aracılığıyla internete bağlanan kullanıcı yüzdesi %95.0.
 Mobil Uygulama indirme sayısı 2022 yılında 275 milyar, 2023 yılında tahmini 299 milyar.
 
-Akıllı telefonlar insanların hayatına çok kapsamlı bir şekilde nüfus etmiştir, öyle ki çoğu zaman bir iş yapmadan önce elimizi cebimize, akıllı telefunumuza uzatmaktayız. Akıllı telefonlar yapması gereken belirli görevi o görev için özel olarak programlanmış uygulamalar aracılığı ile gerçekleştirir.
+Akıllı telefonlar insan hayatına çok kapsamlı bir şekilde nüfus etmiştir, öyle ki çoğu zaman bir iş yapmadan önce elimizi cebimize, akıllı telefunumuza uzatmaktayız. Akıllı telefonlar yapması gereken belirli görevi o görev için özel olarak programlanmış uygulamalar aracılığı ile gerçekleştirir.
 
 Mobil uygulama geliştirmenin çeşitli avantajları vardır; işletim sistemi özelliklerine tam erişim, gelişmiş kullanıcı arayüzü, kullanıcı deneyimini geliştiren kamera, sensörler gibi mobil platform özellik setlerine erişim..
 
