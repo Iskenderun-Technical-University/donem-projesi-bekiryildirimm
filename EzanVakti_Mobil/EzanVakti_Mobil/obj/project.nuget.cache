@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Mmfkr+LpkTvQF3N051NvUWSmYI0+FjK+vB6Ss4Ci3XNb3E6jsn+IauZN6WwwtKT3LLWgYwxX/DhgtjZWB6uTcQ==",
+  "dgSpecHash": "DQMFobnWeyHiDpMneYdtqt2UeqCaGMjpl7d4CaP9yAYg2ZobhSNH2HlRrB7bwnQwFJjR1E2UMPfjgSSnwIlkQA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\manas\\Desktop\\EzanVakti_mobil_veriTabaniDestekli\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj",
+  "projectFilePath": "C:\\Users\\manas\\source\\repos\\donem-projesi-bekiryildirimm\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\manas\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512",
     "C:\\Users\\manas\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\manas\\.nuget\\packages\\sqlite-net\\1.6.292\\sqlite-net.1.6.292.nupkg.sha512",
     "C:\\Users\\manas\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",

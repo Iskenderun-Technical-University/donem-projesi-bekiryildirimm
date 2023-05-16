@@ -25,11 +25,11 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=638187178279282710
+_nugetassetstimestamp=638198556437494200
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a
 x86
 x86_64
 androidmanifestplaceholders=
-projectfullpath=c:\users\manas\desktop\ezanvakti_mobil_veritabanidestekli\ezanvakti_mobil\ezanvakti_mobil\ezanvakti_mobil.csproj
+projectfullpath=c:\users\manas\source\repos\donem-projesi-bekiryildirimm\ezanvakti_mobil\ezanvakti_mobil\ezanvakti_mobil.csproj

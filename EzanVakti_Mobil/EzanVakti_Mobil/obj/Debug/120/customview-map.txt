@@ -16,15 +16,15 @@ background;obj\Debug\120\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Debug\120\res\mipmap-anydpi-v26\ic_launcher_round.xml
 bitmap;obj\Debug\120\res\drawable\splash_screen.xml
 Button;obj\Debug\120\res\layout\activity_first_screen.xml
-cache-path;C:\Users\manas\Desktop\EzanVakti_mobil_veriTabaniDestekli\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+cache-path;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\120\res\values\colors.xml
 color;obj\Debug\120\res\values\ic_launcher_background.xml
 com.google.android.material.appbar.AppBarLayout;obj\Debug\120\res\layout\activity_main.xml
 com.google.android.material.appbar.CollapsingToolbarLayout;obj\Debug\120\res\layout\activity_main.xml
 corners;obj\Debug\120\res\drawable\bg_background_prayer.xml
 corners;obj\Debug\120\res\drawable\bg_main_location.xml
-external-cache-path;C:\Users\manas\Desktop\EzanVakti_mobil_veriTabaniDestekli\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-external-path;C:\Users\manas\Desktop\EzanVakti_mobil_veriTabaniDestekli\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-cache-path;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\120\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\120\res\mipmap-anydpi-v26\ic_launcher_round.xml
 gradient;obj\Debug\120\res\drawable\bg_background_prayer.xml
@@ -56,7 +56,7 @@ path;obj\Debug\120\res\drawable\ic_prayer_time_sun_past.xml
 path;obj\Debug\120\res\drawable\ic_prayer_time_sun_primary_color.xml
 path;obj\Debug\120\res\drawable\toolbar_bg_curved.xml
 path;obj\Debug\120\res\drawable\toolbar_bg_rectangle.xml
-paths;C:\Users\manas\Desktop\EzanVakti_mobil_veriTabaniDestekli\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+paths;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 RelativeLayout;obj\Debug\120\res\layout\activity_first_screen.xml
 resources;obj\Debug\120\res\values\colors.xml
 resources;obj\Debug\120\res\values\ic_launcher_background.xml
@@ -74,7 +74,7 @@ solid;obj\Debug\120\res\drawable\circle.xml
 string;obj\Debug\120\res\values\strings.xml
 stroke;obj\Debug\120\res\drawable\bg_background_prayer.xml
 style;obj\Debug\120\res\values\styles.xml
-TextSwitcher;obj\Debug\120\res\layout\activity_main.xml
+TextView;obj\Debug\120\res\layout\activity_main.xml
 translate;obj\Debug\120\res\anim\item_animation_slide_from_bottom.xml
 vector;obj\Debug\120\res\drawable\ic_prayer_time_asr.xml
 vector;obj\Debug\120\res\drawable\ic_prayer_time_asr_past.xml

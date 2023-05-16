@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\manas\\Desktop\\EzanVakti_mobil_veriTabaniDestekli\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj": {}
+    "C:\\Users\\manas\\source\\repos\\donem-projesi-bekiryildirimm\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj": {}
   },
   "projects": {
-    "C:\\Users\\manas\\Desktop\\EzanVakti_mobil_veriTabaniDestekli\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj": {
+    "C:\\Users\\manas\\source\\repos\\donem-projesi-bekiryildirimm\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\manas\\Desktop\\EzanVakti_mobil_veriTabaniDestekli\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj",
+        "projectUniqueName": "C:\\Users\\manas\\source\\repos\\donem-projesi-bekiryildirimm\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj",
         "projectName": "EzanVakti_Mobil",
-        "projectPath": "C:\\Users\\manas\\Desktop\\EzanVakti_mobil_veriTabaniDestekli\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj",
+        "projectPath": "C:\\Users\\manas\\source\\repos\\donem-projesi-bekiryildirimm\\EzanVakti_Mobil\\EzanVakti_Mobil\\EzanVakti_Mobil.csproj",
         "packagesPath": "C:\\Users\\manas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\manas\\Desktop\\EzanVakti_mobil_veriTabaniDestekli\\EzanVakti_Mobil\\EzanVakti_Mobil\\obj\\",
+        "outputPath": "C:\\Users\\manas\\source\\repos\\donem-projesi-bekiryildirimm\\EzanVakti_Mobil\\EzanVakti_Mobil\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -38,6 +38,10 @@
       "frameworks": {
         "monoandroid12.0": {
           "dependencies": {
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.46, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
