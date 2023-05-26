@@ -9,9 +9,13 @@
     android:background="@drawable/gunes">
      
                 <com.google.android.material.appbar.AppBarLayout android:id="@+id/mainAppbar" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="250.0dip" app:elevation="0.0dip">
+
                 <com.google.android.material.appbar.CollapsingToolbarLayout android:layout_width="match_parent" android:layout_height="match_parent" app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
                    
-                   
+                                                      <RelativeLayout android:id="@+id/mainRlytMenuBtn" android:background="@drawable/bg_menu_circle" android:onClick="onMainClick"  android:contentDescription="Seçenekler" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/MenuButtonRlytStyle">
+            <androidx.appcompat.widget.AppCompatImageView android:layout_width="fill_parent" android:layout_height="fill_parent" app:srcCompat="@drawable/ic_menu" style="@style/MenuButtonImageStyle" />
+        </RelativeLayout>
+ 
                     <androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/toolbar_bg_curved" android:layout_gravity="bottom" android:layout_width="match_parent" android:layout_height="190.0dip">
                         <TextView android:id="@+id/KalanVakit"  android:textSize="16.0dip" android:textColor="@android:color/white" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:textAlignment="textStart" android:layout_marginStart="16.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
                         <TextView android:id="@+id/KalanZaman" android:textSize="48.0dip"  android:textColor="@android:color/white" android:layout_width="0.0dip" android:layout_height="wrap_content" android:textAlignment="textStart" android:layout_marginStart="16.0dip" app:layout_constraintBottom_toTopOf="@+id/mainClytDateTime" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/mainTvLocationRemainingTimeStr" />
@@ -29,7 +33,7 @@
                     <View android:layout_gravity="bottom" android:id="@+id/dibiNotKnown" android:background="@drawable/toolbar_dropshadow" android:visibility="gone" android:layout_width="match_parent" android:layout_height="3.0dip" />
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
             </com.google.android.material.appbar.AppBarLayout>
-          
+ 
        
 
         <!--ImageView

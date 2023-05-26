@@ -44,11 +44,65 @@
 		<item name="android:layout_weight">1.0</item>
 		<item name="android:onClick">onLocationFragmentPrayerTimeClick</item>
 	</style>
+	<style name="AppTheme.CustomTheme" parent="Theme.AppCompat.NoActionBar">
+		<item name="android:background">@android:color/transparent</item>
+		<!--on below line we are displaying the windowNotitle as true as we are not displaying our status bar-->
+		<item name="android:windowNoTitle">true</item>
+		<!--on below line we are setting our window background as transparent color-->
+		<item name="android:windowBackground">@color/saydam</item>
+		<!--on below line we are setting color background cache hint as null-->
+		<item name="android:colorBackgroundCacheHint">@null</item>
+		<!--on below line we are adding a window translucent as true-->
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="colorPrimaryDark">#00000000</item>
+		<!--on below line we are adding a window animationstyle-->
+		<item name="android:windowAnimationStyle">@android:style/Animation</item>
+	</style>
+	<style name="AppTheme.CustomTheme2" parent="Theme.AppCompat.NoActionBar">
+		<item name="android:windowBackground">
+			@color/clrBlackTransparent25
+		</item>
+		
+	</style>
 	<style name="SplashScreen" parent="@style/AppTheme">
 		<item name="android:windowBackground">@drawable/splash_screen</item>
 		<item name="android:windowContentOverlay">@null</item>
 		<item name="android:windowFullscreen">true</item>
 		<item name="android:windowTranslucentStatus">true</item>
 		<item name="android:windowDrawsSystemBarBackgrounds">false</item>
+	</style>
+	<style name="MenuButtonImageStyle" parent="@style/AppTheme">
+		<item name="android:background">?selectableItemBackgroundBorderless</item>
+		<item name="android:scaleType">center</item>
+	</style>
+	<style name="MenuButtonRlytStyle" parent="@style/AppTheme">
+		<item name="android:layout_gravity">end|center|top</item>
+		<item name="android:layout_width">48.0dip</item>
+		<item name="android:layout_height">48.0dip</item>
+		<item name="android:layout_marginTop">16.0dip</item>
+		<item name="android:layout_marginStart">16.0dip</item>
+		<item name="android:layout_marginEnd">16.0dip</item>
+	</style>
+	<style name="MenuLlytButtonStyle" parent="@style/AppTheme">
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:orientation">horizontal</item>
+		<item name="android:background">?selectableItemBackground</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">56.0dip</item>
+		<item name="android:onClick">onMenuClick</item>
+		<item name="android:paddingStart">16.0dip</item>
+		<item name="android:paddingEnd">16.0dip</item>
+	</style>
+	<style name="MenuTvTitleStyle" parent="@style/AppTheme">
+		<item name="android:textSize">14.0dip</item>
+		<item name="android:textColor">@color/clrMenuText</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_marginStart">16.0dip</item>
+	</style>
+	<style name="MenuRlytIconStyle" parent="@style/AppTheme">
+		<item name="android:padding">8.0dip</item>
+		<item name="android:layout_width">40.0dip</item>
+		<item name="android:layout_height">40.0dip</item>
 	</style>
 </resources>

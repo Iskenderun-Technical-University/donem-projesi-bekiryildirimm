@@ -18,8 +18,14 @@
   <permission android:name="com.companyname.ezanvakti_mobil.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature" />
   <uses-permission android:name="com.companyname.ezanvakti_mobil.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
   <application android:name="android.app.Application" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:extractNativeLibs="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+    <!--
+activity android:name=".MenuActivity"
+				android:theme="@android:style/Theme.Translucent"
+></activity
+        -->
     <activity android:name="crc64715ccd8b43db7812.GirişEkrani" android:label="GirişEkrani" />
     <activity android:name="crc64715ccd8b43db7812.MainActivity" android:label="@string/app_name" android:theme="@style/AppTheme" />
+    <activity android:name="crc64715ccd8b43db7812.MenuActivity" android:label="MenuActivity" android:theme="@style/AppTheme.CustomTheme" />
     <activity android:name="crc64715ccd8b43db7812.SplashActivity1" android:exported="true" android:label="@string/app_name" android:noHistory="true" android:theme="@style/SplashScreen">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

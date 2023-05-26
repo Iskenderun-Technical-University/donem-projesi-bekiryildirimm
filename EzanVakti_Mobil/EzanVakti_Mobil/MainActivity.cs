@@ -18,6 +18,9 @@ using AndroidX.AppCompat.Widget;
 using HtmlAgilityPack;
 using System.Net.Http;
 using AndroidX.ConstraintLayout.Widget;
+using Android.Views;
+using Android.Graphics.Drawables;
+using Java.Interop;
 //using System.Timers;
 //using System.Threading.Timer;
 
@@ -37,6 +40,8 @@ namespace EzanVakti_Mobil
         TextView text,kalanVakit,kalanZaman;
         AppCompatTextView diyanet,ayetTitle;
         ConstraintLayout gunescons, imsakcons, oglecons, ikindicons, aksamcons, yatsicons;
+        RelativeLayout menubtn;
+        View v;
        System.Timers.Timer timer;
        
         // CountDownTimer count;
@@ -48,6 +53,7 @@ namespace EzanVakti_Mobil
         "AKŞAM EZANINA KALAN ",
          "YATSI EZANINA KALAN"
     };
+
         protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -56,6 +62,16 @@ namespace EzanVakti_Mobil
             text = FindViewById<TextView>(Resource.Id.AnaSayfaTarih);
             kalanVakit= FindViewById<TextView>(Resource.Id.KalanVakit);
             kalanZaman= FindViewById<TextView>(Resource.Id.KalanZaman);
+            ikindicons = FindViewById<ConstraintLayout>(Resource.Id.clytAsr);
+        
+            menubtn = FindViewById<RelativeLayout>(Resource.Id.mainRlytMenuBtn);
+            menubtn.Click += delegate
+            {
+                onMainClick(v);
+                /*Drawable backgnd = menubtn.Background;
+                backgnd.SetTint(Resource.Color.colorPrimary);*/
+            };
+            
             /*  HttpClient client = new HttpClient();
               var response = await client.GetStringAsync("https://www.diyanet.gov.tr/tr-TR");
               HtmlDocument html = new HtmlDocument();
@@ -164,13 +180,21 @@ namespace EzanVakti_Mobil
             catch(Exception ex) { }
         }
 
-/*        private void Timer_Elapsed1(object sender, ElapsedEventArgs e)
+        /*        private void Timer_Elapsed1(object sender, ElapsedEventArgs e)
+                {
+                    DateTime simdi = DateTime.Now;
+                    FindViewById<TextSwitcher>(Resource.Id.KalanVakit).SetCurrentText(vakit[0]);
+                    FindViewById<TextSwitcher>(Resource.Id.KalanZaman).SetCurrentText(simdi.ToString("HH:mm:ss tt"));
+                    FindViewById<TextView>(Resource.Id.mainYerelSaat).Text = DateTime.Now.ToString("HH:mm");
+                }*/
+       
+        public void onMainClick(View v)
         {
-            DateTime simdi = DateTime.Now;
-            FindViewById<TextSwitcher>(Resource.Id.KalanVakit).SetCurrentText(vakit[0]);
-            FindViewById<TextSwitcher>(Resource.Id.KalanZaman).SetCurrentText(simdi.ToString("HH:mm:ss tt"));
-            FindViewById<TextView>(Resource.Id.mainYerelSaat).Text = DateTime.Now.ToString("HH:mm");
-        }*/
+            //AndroidX.AppCompat.Widget.PopupMenu menu = new AndroidX.AppCompat.Widget.PopupMenu(this, menubtn);
+            //menu.MenuInflater.Inflate(Resource.Layout.activity_first_screen);
+            StartActivity(new Intent(ApplicationContext, typeof(MenuActivity)));
+
+        }
         void bekir(object sender, EventArgs e)
         {
          //   DateTime simdi = DateTime.Now;
@@ -184,7 +208,7 @@ namespace EzanVakti_Mobil
                 kalanVakit.Text ="İMSAK VAKTİNE KALAN";
                 TimeSpan d = DateTime.Parse(ezan1.imsak).Subtract(DateTime.Parse(simdi.ToString("HH:mm:ss tt")));
                 kalanZaman.Text = d.ToString();
-
+                
             }
             else if (simdi.Hour <= Int32.Parse(ezan1.gunes.Remove(2)) && (simdi.Hour < Int32.Parse(ezan1.gunes.Remove(2)) || simdi.Minute < Int32.Parse(ezan1.gunes.Remove(0, 3))))
             {
@@ -204,7 +228,8 @@ namespace EzanVakti_Mobil
                 kalanVakit.Text = "İKİNDİ EZANINA KALAN";
                 TimeSpan d = DateTime.Parse(ezan1.ikindi).Subtract(DateTime.Parse(simdi.ToString("HH:mm:ss tt")));
                 kalanZaman.Text = d.ToString();
-
+                
+                    
 
 
 
