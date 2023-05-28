@@ -42,6 +42,7 @@ namespace EzanVakti_Mobil
                 Current current= new Current();
                 // CurrentDatabase.selectTableCurrent(current);
                 current = CurrentDatabase.selectTable();
+                namazVaktiApi.city = current.Sehir;
                 if(dt.Year==current.year&&dt.Month==current.month)
                 {
                     StartActivity(new Intent(ApplicationContext, typeof(MainActivity)));

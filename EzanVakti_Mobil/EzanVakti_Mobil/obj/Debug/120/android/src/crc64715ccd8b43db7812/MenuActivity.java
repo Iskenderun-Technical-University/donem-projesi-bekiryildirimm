@@ -2,7 +2,7 @@ package crc64715ccd8b43db7812;
 
 
 public class MenuActivity
-	extends android.app.Activity
+	extends androidx.appcompat.app.AppCompatActivity
 	implements
 		mono.android.IGCUserPeer
 {
@@ -21,6 +21,15 @@ public class MenuActivity
 		super ();
 		if (getClass () == MenuActivity.class) {
 			mono.android.TypeManager.Activate ("EzanVakti_Mobil.MenuActivity, EzanVakti_Mobil", "", this, new java.lang.Object[] {  });
+		}
+	}
+
+
+	public MenuActivity (int p0)
+	{
+		super (p0);
+		if (getClass () == MenuActivity.class) {
+			mono.android.TypeManager.Activate ("EzanVakti_Mobil.MenuActivity, EzanVakti_Mobil", "System.Int32, mscorlib", this, new java.lang.Object[] { p0 });
 		}
 	}
 

@@ -64,7 +64,7 @@
             },
             "Xamarin.Google.Android.Material": {
               "target": "Package",
-              "version": "[1.0.0.1, )"
+              "version": "[1.9.0.1, )"
             },
             "sqlite-net": {
               "target": "Package",

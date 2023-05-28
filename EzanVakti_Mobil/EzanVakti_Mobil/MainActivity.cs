@@ -21,6 +21,8 @@ using AndroidX.ConstraintLayout.Widget;
 using Android.Views;
 using Android.Graphics.Drawables;
 using Java.Interop;
+using Android.Renderscripts;
+using AndroidX.Transitions;
 //using System.Timers;
 //using System.Threading.Timer;
 
@@ -37,8 +39,8 @@ namespace EzanVakti_Mobil
         veritabani veriTabani;
         DateTime bugun = DateTime.Now;
         namazVaktiData ezan,ezan1;
-        TextView text,kalanVakit,kalanZaman;
-        AppCompatTextView diyanet,ayetTitle;
+        TextView kalanVakit,kalanZaman;
+        AppCompatTextView diyanet,ayetTitle,hicritxt,miladitxt,dhurur;
         ConstraintLayout gunescons, imsakcons, oglecons, ikindicons, aksamcons, yatsicons;
         RelativeLayout menubtn;
         View v;
@@ -59,19 +61,31 @@ namespace EzanVakti_Mobil
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
-            text = FindViewById<TextView>(Resource.Id.AnaSayfaTarih);
+            miladitxt = FindViewById<AppCompatTextView>(Resource.Id.AnaSayfaTarih);
             kalanVakit= FindViewById<TextView>(Resource.Id.KalanVakit);
             kalanZaman= FindViewById<TextView>(Resource.Id.KalanZaman);
             ikindicons = FindViewById<ConstraintLayout>(Resource.Id.clytAsr);
-        
+            hicritxt = FindViewById<AppCompatTextView>(Resource.Id.mainHicriTakvim);
             menubtn = FindViewById<RelativeLayout>(Resource.Id.mainRlytMenuBtn);
+            imsakcons = FindViewById<ConstraintLayout>(Resource.Id.clytFajr);
+           // dhurur = FindViewById<AppCompatTextView>(Resource.Id.tvDhuhrTitle);
+         //   dhurur.SetTextColor(Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Black));
+          //  imsakcons.bac
             menubtn.Click += delegate
             {
                 onMainClick(v);
                 /*Drawable backgnd = menubtn.Background;
                 backgnd.SetTint(Resource.Color.colorPrimary);*/
             };
-            
+
+            hicritxt.Click += delegate
+            {
+                onHijriClick(v);
+            };
+            miladitxt.Click += delegate
+            {
+                onMiladiClick(v);
+            };
             /*  HttpClient client = new HttpClient();
               var response = await client.GetStringAsync("https://www.diyanet.gov.tr/tr-TR");
               HtmlDocument html = new HtmlDocument();
@@ -114,14 +128,15 @@ namespace EzanVakti_Mobil
                 }
             }
 
-            text.Text = "  " + ezan.GregDay + "\n" + ezan.GregAylar + "\n" + ezan.GregYear;
+            miladitxt.Text = "  " + ezan.GregDay + "\n" + ezan.GregAylar + "\n" + ezan.GregYear;
             FindViewById<TextView>(Resource.Id.tvImsak).Text = ezan.imsak;
             FindViewById<TextView>(Resource.Id.tvGunes).Text = ezan.gunes;
             FindViewById<TextView>(Resource.Id.tvOgle).Text = ezan.ogle;
             FindViewById<TextView>(Resource.Id.tvIkindi).Text = ezan.ikindi;
             FindViewById<TextView>(Resource.Id.tvAksam).Text = ezan.aksam;
             FindViewById<TextView>(Resource.Id.tvYatsi).Text = ezan.yatsi;
-            FindViewById<TextView>(Resource.Id.mainHicriTakvim).Text = " " + ezan.HijriDay + "\n" + ezan.HijriMonthTr + "\n" + ezan.HijriYear;
+           
+           hicritxt.Text = " " + ezan.HijriDay + "\n" + ezan.HijriMonthTr + "\n" + ezan.HijriYear;
             rcData = FindViewById<RecyclerView>(Resource.Id.recyclerViewHaftalikVakitler);
             /*ada = new RecycleAdapter(this, data);
              rcData.SetAdapter(ada);*/
@@ -129,7 +144,7 @@ namespace EzanVakti_Mobil
             LoadHaftalikEzanVakti();
             try
             {
-                HttpClient client = new HttpClient();
+              /*  HttpClient client = new HttpClient();
                 var response = await client.GetStringAsync("https://www.diyanethaber.com.tr/diyanet-takvimi");
                 HtmlDocument html = new HtmlDocument();
                 html.LoadHtml(response);
@@ -145,10 +160,32 @@ namespace EzanVakti_Mobil
 
                 string ba = programmerLinks.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[1]")[0].InnerText;
                 var baslik = programmerLinks.SelectNodes("/html/head/meta[8]")[0];
-                string TakvimTitle = baslik.Attributes["content"].Value;
-                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvCalendarBackTitle).Text = TakvimTitle.ToUpper();
-                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvCalendarBackContent).Text = ba;
+                string TakvimTitle = baslik.Attributes["content"].Value;*/
+                Diyanet diyanetWeb = new Diyanet();
+                  await diyanetWeb.CallTakvimArka();
+                 await diyanetWeb.CallBirAyet();
+                await diyanetWeb.CallBirHadis();
+              // await diyanetWeb.CallBirDua();
+                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvCalendarBackTitle).Text = diyanetWeb.titleTakvimarka;
+                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvCalendarBackContent).Text = diyanetWeb.TakvimArka;
+                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvVerseContent).Text = diyanetWeb.BirAyet;
+                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvVerseSource).Text = diyanetWeb.titleAyet;
+                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvCalendarFront).Text = diyanetWeb.TakvimOn;
+                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvHadithContent).Text = diyanetWeb.BirHadis;
+                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvHadithSource).Text = diyanetWeb.titleHadis;
+              //  FindViewById<AppCompatTextView>(Resource.Id.frgLocTvPrayerContent).Text = diyanetWeb.BirDua;
+               // FindViewById<AppCompatTextView>(Resource.Id.frgLocTvPrayerSource).Text = diyanetWeb.titleDua;
+
+                ayetTitle = FindViewById<AppCompatTextView>(Resource.Id.frgLocTvVerseTitle);
+                ayetTitle.Visibility = Android.Views.ViewStates.Visible;
+                //  FindViewById<AppCompatTextView>(Resource.Id.frgLocTvCalendarBackTitle).Text = TakvimTitle.ToUpper();
+                // FindViewById<AppCompatTextView>(Resource.Id.frgLocTvCalendarBackContent).Text = ba;
                 diyanet = FindViewById<AppCompatTextView>(Resource.Id.frgLocTvCalendarBack);
+                FindViewById<ConstraintLayout>(Resource.Id.clytTakvimOn).Visibility = Android.Views.ViewStates.Visible;
+                FindViewById<ConstraintLayout>(Resource.Id.clytTakvimArka).Visibility = Android.Views.ViewStates.Visible;
+                FindViewById<ConstraintLayout>(Resource.Id.clytBirAyet).Visibility = Android.Views.ViewStates.Visible;
+                FindViewById<ConstraintLayout>(Resource.Id.clytBirHadis).Visibility = Android.Views.ViewStates.Visible;
+              //  FindViewById<ConstraintLayout>(Resource.Id.clytBirDua).Visibility = Android.Views.ViewStates.Visible;
                 diyanet.Visibility = Android.Views.ViewStates.Visible;
             }
             catch (Exception ex)
@@ -156,28 +193,42 @@ namespace EzanVakti_Mobil
             }
             try
             {
-                HttpClient client = new HttpClient();
-                HtmlDocument html5 = new HtmlDocument();
-                var response3 = await client.GetStringAsync("https://www.diyanethaber.com.tr/bir-ayet");
-                html5.LoadHtml(response3);
-
-                var Links2 = html5.DocumentNode;
-                var ay = Links2.SelectNodes("/html/body/main/div/div[2]/div[3]/div/div[1]/div[1]/div[1]/div[1]/a")[0];
-                string link7 = "https://www.diyanethaber.com.tr" + ay.Attributes["href"].Value;
-                HtmlDocument html7 = new HtmlDocument();
-                var response7 = await client.GetStringAsync(link7);
-                html7.LoadHtml(response7);
-                var Links7 = html7.DocumentNode;
-                var ayet = Links7.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[1]/strong")[0].InnerText;
-                int inde2 = ayet.IndexOf("(", ayet.Length - 30);
-                string ayet2 = ayet.Remove(inde2);
-                string ayet3 = ayet.Remove(0, inde2);
-                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvVerseContent).Text = ayet2;
-                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvVerseSource).Text = ayet3;
-                ayetTitle =FindViewById<AppCompatTextView>(Resource.Id.frgLocTvVerseTitle);
-                ayetTitle.Visibility = Android.Views.ViewStates.Visible;
+                Diyanet diyanetWeb = new Diyanet();
+                await diyanetWeb.CallBirDua();
+                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvPrayerContent).Text = diyanetWeb.BirDua;
+                FindViewById<AppCompatTextView>(Resource.Id.frgLocTvPrayerSource).Text = diyanetWeb.titleDua;
+                FindViewById<ConstraintLayout>(Resource.Id.clytBirDua).Visibility = Android.Views.ViewStates.Visible;
             }
-            catch(Exception ex) { }
+            catch(Exception ex)
+            {
+
+            }
+            /*  try
+              {
+                  HttpClient client = new HttpClient();
+                  HtmlDocument html5 = new HtmlDocument();
+                  var response3 = await client.GetStringAsync("https://www.diyanethaber.com.tr/bir-ayet");
+                  html5.LoadHtml(response3);
+
+                  var Links2 = html5.DocumentNode;
+                  var ay = Links2.SelectNodes("/html/body/main/div/div[2]/div[3]/div/div[1]/div[1]/div[1]/div[1]/a")[0];
+                  string link7 = "https://www.diyanethaber.com.tr" + ay.Attributes["href"].Value;
+                  HtmlDocument html7 = new HtmlDocument();
+                  var response7 = await client.GetStringAsync(link7);
+                  html7.LoadHtml(response7);
+                  var Links7 = html7.DocumentNode;
+                  var ayet = Links7.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[1]/strong")[0].InnerText;
+                  int inde2 = ayet.IndexOf("(", ayet.Length - 30);
+                  string ayet2 = ayet.Remove(inde2);
+                  string ayet3 = ayet.Remove(0, inde2);
+                  FindViewById<AppCompatTextView>(Resource.Id.frgLocTvVerseContent).Text = ayet2;
+                  FindViewById<AppCompatTextView>(Resource.Id.frgLocTvVerseSource).Text = ayet3;
+                  ayetTitle =FindViewById<AppCompatTextView>(Resource.Id.frgLocTvVerseTitle);
+                  ayetTitle.Visibility = Android.Views.ViewStates.Visible;
+              }*/
+            //catch(Exception ex) { }
+
+
         }
 
         /*        private void Timer_Elapsed1(object sender, ElapsedEventArgs e)
@@ -188,6 +239,31 @@ namespace EzanVakti_Mobil
                     FindViewById<TextView>(Resource.Id.mainYerelSaat).Text = DateTime.Now.ToString("HH:mm");
                 }*/
        
+        public void onMiladiClick(View v)
+        {
+            Bundle bundle = new Bundle();
+            bundle.PutBoolean("status", true);
+            
+            FragmentMonthly aylikfragment = new FragmentMonthly();
+            AndroidX.Fragment.App.FragmentManager manager = this.SupportFragmentManager;
+            aylikfragment.Arguments = bundle;
+            aylikfragment.Show(manager, "dialog");
+  
+       
+
+        }
+        public void onHijriClick(View v)
+        {
+            Bundle bundle = new Bundle();
+            bundle.PutBoolean("status", false);
+
+            FragmentMonthly aylikfragment = new FragmentMonthly();
+            AndroidX.Fragment.App.FragmentManager manager = this.SupportFragmentManager;
+            aylikfragment.Arguments = bundle;
+            aylikfragment.Show(manager, "dialog");
+
+
+        }
         public void onMainClick(View v)
         {
             //AndroidX.AppCompat.Widget.PopupMenu menu = new AndroidX.AppCompat.Widget.PopupMenu(this, menubtn);
@@ -239,7 +315,7 @@ namespace EzanVakti_Mobil
                 kalanVakit.Text = "AKŞAM EZANINA KALAN";
                 TimeSpan d = DateTime.Parse(ezan1.aksam).Subtract(DateTime.Parse(simdi.ToString("HH:mm:ss tt")));
                 kalanZaman.Text = d.ToString();
-
+                dhurur.SetTextColor(Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Black));
 
             }
             else if (simdi.Hour <= Int32.Parse(ezan1.yatsi.Remove(2)) && (simdi.Hour < Int32.Parse(ezan1.yatsi.Remove(2)) || simdi.Minute < Int32.Parse(ezan1.yatsi.Remove(0, 3))))
@@ -268,7 +344,7 @@ namespace EzanVakti_Mobil
 
         foreach(var item in data)
             {
-                if(bugun.Day<=item.GregDay&&bugun.Day+7>=item.GregDay&&bugun.Month==item.GregMonthNumber)
+                if(bugun.Day<=item.GregDay&&bugun.Day+6>=item.GregDay&&bugun.Month==item.GregMonthNumber)
                     weeklydata.Add(item);
             }
             ada = new RecycleAdapter(this, weeklydata);
