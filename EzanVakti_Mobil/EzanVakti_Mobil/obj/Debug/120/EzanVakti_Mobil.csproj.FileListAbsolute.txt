@@ -2501,3 +2501,6 @@ C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVak
 C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\android\src\crc64715ccd8b43db7812\MyAlarmReceiver.java
 C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\drawable\uyaritonu.mp3
 C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\raw\uyaritonu.mp3
+C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\layout\activity_locations_edit.xml
+C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\drawable\ic_ok.xml
+C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\drawable\ic_sort.xml

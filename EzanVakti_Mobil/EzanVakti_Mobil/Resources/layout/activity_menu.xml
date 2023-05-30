@@ -19,7 +19,7 @@
                 <androidx.appcompat.widget.AppCompatTextView android:text="Namaz Vaktini Ara" style="@style/MenuTvTitleStyle" />
             </androidx.appcompat.widget.LinearLayoutCompat>
             <View android:background="@color/clrMenuText" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.100000024dip" android:layout_marginTop="2.0dip" android:layout_marginBottom="2.0dip"    />
-            <androidx.appcompat.widget.LinearLayoutCompat android:id="@+id/menuLlytLocationsBtn" style="@style/MenuLlytButtonStyle">
+            <androidx.appcompat.widget.LinearLayoutCompat android:id="@+id/menuLlytLocationsBtn" style="@style/MenuLlytButtonStyle" android:onClick="onLocationClick">
                 <RelativeLayout android:background="@drawable/bg_menu_icon_circle" style="@style/MenuRlytIconStyle">
                     <androidx.appcompat.widget.AppCompatImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" app:srcCompat="@drawable/ic_menu_locations" />
                 </RelativeLayout>
@@ -47,11 +47,25 @@
                 <androidx.appcompat.widget.AppCompatTextView android:text="@string/menu_compass" style="@style/MenuTvTitleStyle" />
             </androidx.appcompat.widget.LinearLayoutCompat>
             <View android:background="@color/clrMenuText" android:layout_width="fill_parent" android:layout_height="0.100000024dip" android:layout_marginTop="2.0dip" android:layout_marginBottom="2.0dip"   /-->
-            <androidx.appcompat.widget.LinearLayoutCompat android:id="@+id/menuLlytReligiousDaysBtn" style="@style/MenuLlytButtonStyle">
+            <androidx.appcompat.widget.LinearLayoutCompat android:visibility="gone" android:id="@+id/menuLlytReligiousDaysBtn" style="@style/MenuLlytButtonStyle">
                 <RelativeLayout android:background="@drawable/bg_menu_icon_circle" style="@style/MenuRlytIconStyle">
                     <androidx.appcompat.widget.AppCompatImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" app:srcCompat="@drawable/ic_calendar" />
                 </RelativeLayout>
                 <androidx.appcompat.widget.AppCompatTextView android:text="Dini Günler ve Geceler" style="@style/MenuTvTitleStyle" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <View android:background="@color/clrMenuText" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.100000024dip" android:layout_marginTop="2.0dip" android:layout_marginBottom="2.0dip"   />
+            <androidx.appcompat.widget.LinearLayoutCompat android:onClick="onMenuMiladiClick" android:id="@+id/menuLlytMiladibtn" style="@style/MenuLlytButtonStyle">
+                <RelativeLayout android:background="@drawable/bg_menu_icon_circle" style="@style/MenuRlytIconStyle">
+                    <androidx.appcompat.widget.AppCompatImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" app:srcCompat="@drawable/ic_calendar" />
+                </RelativeLayout>
+                <androidx.appcompat.widget.AppCompatTextView android:text="Miladi Takvim" style="@style/MenuTvTitleStyle" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <View android:background="@color/clrMenuText" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="0.100000024dip" android:layout_marginTop="2.0dip" android:layout_marginBottom="2.0dip"   />
+            <androidx.appcompat.widget.LinearLayoutCompat android:id="@+id/menuLlytHijriBtn" style="@style/MenuLlytButtonStyle">
+                <RelativeLayout android:background="@drawable/bg_menu_icon_circle" style="@style/MenuRlytIconStyle">
+                    <androidx.appcompat.widget.AppCompatImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" app:srcCompat="@drawable/ic_calendar" />
+                </RelativeLayout>
+                <androidx.appcompat.widget.AppCompatTextView android:onClick="onMenuHicriClick" android:text="Hicri Takvim" style="@style/MenuTvTitleStyle" />
             </androidx.appcompat.widget.LinearLayoutCompat>
             <View android:background="@color/clrMenuText" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.100000024dip" android:layout_marginTop="2.0dip" android:layout_marginBottom="2.0dip"   />
             <androidx.appcompat.widget.LinearLayoutCompat android:visibility="gone" style="@style/MenuLlytButtonStyle">

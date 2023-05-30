@@ -16,7 +16,7 @@ namespace EzanVakti_Mobil
     [Activity(Label = "MenuActivity",Theme = "@style/AppTheme.CustomTheme")]
     public class MenuActivity : AppCompatActivity
     {
-        LinearLayoutCompat settingbtn;
+        LinearLayoutCompat settingbtn,locationbtn,miladibtn,hicribtn;
         RelativeLayout closebtn;
         View v;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -26,6 +26,22 @@ namespace EzanVakti_Mobil
             // Create your application here
             closebtn = FindViewById<RelativeLayout>(Resource.Id.menuRlytCloseBtn);
             settingbtn = FindViewById<LinearLayoutCompat>(Resource.Id.menuLlytSettingsBtn);
+             locationbtn= FindViewById<LinearLayoutCompat>(Resource.Id.menuLlytLocationsBtn);
+            miladibtn= FindViewById<LinearLayoutCompat>(Resource.Id.menuLlytMiladibtn);
+            hicribtn= FindViewById<LinearLayoutCompat>(Resource.Id.menuLlytHijriBtn);
+
+            miladibtn.Click += delegate
+            {
+                onMenuMiladiClick(v);
+            };
+            hicribtn.Click += delegate
+                         {
+                             onMenuHicriClick(v);
+                         };
+            locationbtn.Click += delegate
+                         {
+                             onLocationClick(v);
+                         };
             closebtn.Click += delegate
             {
                 onMenuClick(v);
@@ -36,21 +52,50 @@ namespace EzanVakti_Mobil
             };
 
         }
-        public void onMenuClick(View v) { 
-           this.Finish();
+
+       
+        public void onMenuMiladiClick(View v)
+        {
+            Intent intent = new Intent();
+            intent.PutExtra("menu", "miladi");
+            SetResult(Result.Ok, intent);
+            Finish();
+        }
+        public void onMenuHicriClick(View v)
+        {
+            Intent intent = new Intent();
+            intent.PutExtra("menu", "hicri");
+            SetResult(Result.Ok, intent);
+            Finish();
+        }
+        public void onLocationClick(View v)
+        {
+            Intent intent = new Intent();
+            intent.PutExtra("menu", "konum");
+            SetResult(Result.Ok, intent);
+            Finish();
+        }
+        public void onMenuClick(View v) {
+            Intent intent = new Intent();
+          //  intent.PutExtra("menu", "konum");
+            SetResult(Result.Canceled, intent);
+            this.Finish();
         }
         public void onSettingClick(View v)
         {
-            
+            Intent intent = new Intent();
+            intent.PutExtra("menu", "ayarlar");
+            SetResult(Result.Ok, intent);
+            Finish();
            
-            Bundle bundle = new Bundle();
+           /* Bundle bundle = new Bundle();
             bundle.PutBoolean("status", true);
 
             FragmentMonthly aylikfragment = new FragmentMonthly();
             AndroidX.Fragment.App.FragmentManager manager = this.SupportFragmentManager;
             aylikfragment.Arguments = bundle;
             
-            aylikfragment.Show(manager, "dialog");
+            aylikfragment.Show(manager, "dialog");*/
             
            // Finish();
 

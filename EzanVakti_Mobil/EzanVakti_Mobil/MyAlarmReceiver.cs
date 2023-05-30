@@ -20,28 +20,11 @@ namespace EzanVakti_Mobil
     {
         public async override void OnReceive(Context context, Intent intent)
         {
-                  Android.Net.Uri notification = RingtoneManager.GetDefaultUri(RingtoneType.Notification);
-            Ringtone r = RingtoneManager.GetRingtone(context, notification);
-             r.Play();
+               Android.Net.Uri notification = RingtoneManager.GetDefaultUri(RingtoneType.Notification);
+             Ringtone r = RingtoneManager.GetRingtone(context, notification);           
+    
+                  r.Play();
 
-           /* var pending = PendingIntent.GetActivity(context, 0,
-    intent,
-    PendingIntentFlags.CancelCurrent);
-
-            var builder = new Notification.Builder(context)
-                  .SetContentTitle("title")
-  .SetContentText("message")  
-  .SetDefaults(NotificationDefaults.All)
-                 .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm));
-
-            builder.SetContentIntent(pending);
-            var notific = builder.Build();
-            var manage = NotificationManager.FromContext(context);
-            manage.Notify(0, notific);
-            MediaPlayer player;
-            player = MediaPlayer.Create(context, Resource.Raw.uyaritonu);
-            player.Start();*/
-            // var requestCod = intent.GetIntExtra("Request_Code", -1);
             Toast.MakeText(context, "Haydi Namaza!", ToastLength.Short).Show();
             
         }

@@ -34,14 +34,16 @@ namespace EzanVakti_Mobil
             // SetStyle(Android.App.DialogFragmentStyle.NoTitle, Resource.Style.BottomSheetFragmentStyle);
             SetStyle(BottomSheetDialogFragment.StyleNormal,Resource.Style.BottomSheetFragmentStyle);
            // await Task.Delay(TimeSpan.FromSeconds(3));
-            hangisi = Arguments.GetBoolean("status");
+        
+            
+            /*hangisi = Arguments.GetBoolean("status");
             ezan = new namazVaktiData();
             data = new List<namazVaktiData>();
 
             veriTabani = new veritabani();
             data = veriTabani.selectTable("NamazVakti.db");
             adapter = new recyclerViewMonthly(this, data, hangisi);
- 
+ */
 
             // Create your fragment here
         }
@@ -58,13 +60,13 @@ namespace EzanVakti_Mobil
 
            base.OnCreateView(inflater, container, savedInstanceState);
            
-            var view = inflater.Inflate(Resource.Layout.fragment_bottomsheet_monthly_prayer_times, container, false);
-            recyclerView = view.FindViewById<RecyclerView>(Resource.Id.bsMonthlyRvPrayerTimes);
+            var view = inflater.Inflate(Resource.Layout.activity_locations_edit, container, false);
+          /*  recyclerView = view.FindViewById<RecyclerView>(Resource.Id.bsMonthlyRvPrayerTimes);
             recyclerView.SetAdapter(adapter);
             view.FindViewById<TextView>(Resource.Id.bsMonthlyTvLocation).Text = namazVaktiApi.city;
       
             view.FindViewById<RelativeLayout>(Resource.Id.bsMonthlyLlytWait).Visibility = ViewStates.Gone;
-   
+   */
             return view;
         }
         public override void OnActivityCreated(Bundle savedInstanceState)

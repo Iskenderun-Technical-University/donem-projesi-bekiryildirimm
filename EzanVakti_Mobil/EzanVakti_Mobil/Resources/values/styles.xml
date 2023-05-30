@@ -231,7 +231,29 @@
 		<item name="tabPaddingStart">4.0dip</item>
 		<item name="tabRippleColor">@color/colorPrimary</item>
 	</style>
-	
+	<style name="SwitchStyle" parent="@style/AppTheme">
+		<item name="colorControlActivated">@color/colorPrimary</item>
+		<item name="colorControlHighlight">@color/colorPrimary</item>
+		<item name="colorSwitchThumbNormal">@color/colorPrimary</item>
+	</style>
+	<style name="CustomAlertDialogLineStyle">
+		<item name="android:background">@color/clrStandartText</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">0.5dip</item>
+		<item name="android:alpha">0.5</item>
+	</style>
+	<style name="OutlinedButtonStyle" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+		<item name="android:padding">0.0dip</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="backgroundTint">@color/set_alarm_bg_selector</item>
+		<item name="iconGravity">textStart</item>
+		<item name="iconPadding">0.0dip</item>
+		<item name="iconTint">@color/set_alarm_icon_selector</item>
+		<item name="rippleColor">@color/clrPrimaryTransparent25</item>
+		<item name="strokeColor">@color/colorPrimary</item>
+		<item name="strokeWidth">1.0dip</item>
+	</style>
 	
 	
 	

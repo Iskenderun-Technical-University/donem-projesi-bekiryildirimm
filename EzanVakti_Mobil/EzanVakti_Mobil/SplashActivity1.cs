@@ -6,6 +6,7 @@ using Android.Views;
 using Android.Widget;
 using EzanVakti_Mobil.Resources;
 using EzanVakti_Mobil.Resources.Ayarlar;
+using EzanVakti_Mobil.Resources.AyarlarDataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,11 +40,19 @@ namespace EzanVakti_Mobil
             await Task.Delay(TimeSpan.FromSeconds(1));
             if(dbCurrentExists())
             {
+                LocationDatabase database = new LocationDatabase();
+                EzanVakti_Mobil.Resources.AyarlarDataBase.Location streetlocation = new EzanVakti_Mobil.Resources.AyarlarDataBase.Location();
                 Current current= new Current();
                 // CurrentDatabase.selectTableCurrent(current);
+                streetlocation = LocationDatabase.selectTable();
                 current = CurrentDatabase.selectTable();
                 namazVaktiApi.city = current.Sehir;
-                if(dt.Year==current.year&&dt.Month==current.month)
+                namazVaktiApi.il = streetlocation.Sehir;
+                namazVaktiApi.ilce = streetlocation.ilce;
+                namazVaktiApi.mahalle = streetlocation.mahalle;
+                namazVaktiApi.cadde = streetlocation.cadde;
+                namazVaktiApi.fulladres = streetlocation.full;
+                if (dt.Year==current.year&&dt.Month==current.month)
                 {
                     StartActivity(new Intent(ApplicationContext, typeof(MainActivity)));
                 }
@@ -57,6 +66,7 @@ namespace EzanVakti_Mobil
                     namazVaktiApi namazVakti = new namazVaktiApi();
 
                     await namazVakti.EzanSqlite();
+                    namazVakti.LocationUpdateTable();
                     namazVakti.CurrentUpdateTable();
                     StartActivity(new Intent(ApplicationContext, typeof(MainActivity)));
                 }
@@ -74,7 +84,7 @@ namespace EzanVakti_Mobil
             var path = System.IO.Path.Combine(folder, "Current.db");
             return System.IO.File.Exists(path);
         }
-        async Task<Location> GetCurrentLocation()
+        async Task<Xamarin.Essentials.Location> GetCurrentLocation()
         {
             try
             {

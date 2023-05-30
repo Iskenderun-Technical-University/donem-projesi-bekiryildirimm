@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using EzanVakti_Mobil.Resources.Ayarlar;
+using EzanVakti_Mobil.Resources.AyarlarDataBase;
 using EzanVakti_Mobil.Resources.EzanVakitleri;
 using EzanVakti_Mobil.Resources.sehir;
 using EzanVakti_Mobil.Resources.VeriTabani;
@@ -26,6 +27,11 @@ namespace EzanVakti_Mobil.Resources
         public static int ay;
         public static int yil;
         public static string city;
+        public static string il;
+        public static string ilce;
+        public static string mahalle;
+        public static string cadde;
+        public static string fulladres;
         veritabani vt;
         public namazVaktiApi()
         {
@@ -40,8 +46,8 @@ namespace EzanVakti_Mobil.Resources
         }
         public namazVaktiApi(string enlem,string boylam)
         {
-            enlem = enlem;
-            boylam = boylam;
+            namazVaktiApi.enlem = enlem;
+            namazVaktiApi.boylam = boylam;
         }
         public static string ApiLink(string enlem,string boylam,int yil,int ay)
         {
@@ -52,6 +58,12 @@ namespace EzanVakti_Mobil.Resources
         {
             return $"https://api.openweathermap.org/geo/1.0/reverse?lat={enlem}&lon={boylam}&local_names=tr&appid=f0a46c1cf8fe28d014ed0783f9884b23";
         }
+        public static string AdresApi(string enlem, string boylam)
+        {
+            return $"https://nominatim.openstreetmap.org/reverse.php?lat={enlem}&lon={boylam}&zoom=18&format=jsonv2";
+           // return $"https://geocode.maps.co/reverse?lat={enlem}&lon={boylam}";
+           // return $"https://geocode.maps.co/reverse?lat=37.017448347669024&lon=37.34085951963926";
+        }
         private async Task<EzanVakti> EzanApi()
         {
             var ezanapi = ApiLink(enlem, boylam, yil, ay);
@@ -59,9 +71,16 @@ namespace EzanVakti_Mobil.Resources
             var result = await httpService.ProcessApi<EzanVakti>(ezanapi);
             return result;
         }
+        private async Task<openStreet> streetApi()
+        {
+            var sehirapi = AdresApi(namazVaktiApi.enlem.Replace(",","."), namazVaktiApi.boylam.Replace(",","."));
+            var httpService = new CLientModel();
+            var result = await httpService.ProcessApi<openStreet>(sehirapi);
+            return result;
+        }
         private async Task<List<GpsSehir>> SehirApi()
         {
-            var sehirapi = GpsApi(enlem, boylam);
+            var sehirapi = GpsApi(namazVaktiApi.enlem,namazVaktiApi.boylam);
             var httpService = new CLientModel();
             var result = await httpService.ProcessApi<List<GpsSehir>>(sehirapi);
             return result;
@@ -151,6 +170,8 @@ namespace EzanVakti_Mobil.Resources
             List<namazVaktiData> list = new List<namazVaktiData>();
             await EzanApiCall(list);
             var cityRes = await SehirApi();
+
+          //  namazVaktiApi.cadde = streetRes.address.neighbourhood;
             foreach (var item in cityRes)
             {
                 namazVaktiApi.city = item.name;
@@ -159,6 +180,37 @@ namespace EzanVakti_Mobil.Resources
             {
                 vt.InsertIntoTableEzanVakti(item, "NamazVakti.db");
             }
+            var streetRes = await streetApi();
+            if(streetRes.address.neighbourhood!=null)
+            {
+                namazVaktiApi.cadde = streetRes.address.neighbourhood;
+            }
+            else if (streetRes.address.road!= null)
+            {
+                namazVaktiApi.cadde = streetRes.address.road;
+            }
+           
+            namazVaktiApi.il = streetRes.address.city;
+            namazVaktiApi.fulladres = streetRes.display_name;
+            if(streetRes.address.town!=null)
+            {
+                namazVaktiApi.ilce = streetRes.address.town;
+            }
+            else if(streetRes.address.borough!=null)
+            {
+                namazVaktiApi.ilce = streetRes.address.borough;
+            }
+            
+            if(streetRes.address.suburb!=null)
+            {
+                namazVaktiApi.mahalle = streetRes.address.suburb;
+            }
+            else if(streetRes.address.village!=null)
+            {
+                namazVaktiApi.mahalle = streetRes.address.village;
+            }
+           // namazVaktiApi.ilce = streetRes.address.county;
+            
         }
         public void CurrentInsertTable()
         {
@@ -169,6 +221,30 @@ namespace EzanVakti_Mobil.Resources
             current.Sehir = city;
             cdb.createDataBaseCurrent();
             cdb.InsertIntoTableCurrent(current);
+        }
+        public void LocationInsertTable()
+        {
+            LocationDatabase database=new LocationDatabase();
+           EzanVakti_Mobil.Resources.AyarlarDataBase.Location location= new EzanVakti_Mobil.Resources.AyarlarDataBase.Location();  
+
+            location.Sehir=il;
+            location.ilce = ilce;
+            location.mahalle=mahalle;
+            location.cadde=cadde;
+            location.full = fulladres;
+            database.createDataBaseLocation();
+            database.InsertIntoTableLocation(location);
+        }
+        public void LocationUpdateTable()
+        {
+            LocationDatabase database = new LocationDatabase();
+            EzanVakti_Mobil.Resources.AyarlarDataBase.Location location = new EzanVakti_Mobil.Resources.AyarlarDataBase.Location();
+            location.Sehir = il;
+            location.ilce = ilce;
+            location.mahalle = mahalle;
+            location.cadde = cadde;
+            database.UpdateTablelocation(location);
+            
         }
         public void CurrentUpdateTable()
         {

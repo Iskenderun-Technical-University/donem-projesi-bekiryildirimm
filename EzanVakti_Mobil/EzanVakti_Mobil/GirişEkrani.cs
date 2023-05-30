@@ -42,11 +42,12 @@ namespace EzanVakti_Mobil
                 namazVaktiApi.boylam = location.Longitude.ToString();
                 namazVaktiApi.ay = dt.Month;
                 namazVaktiApi.yil = dt.Year;
-                namazVaktiApi namazVakti = new namazVaktiApi();
+                namazVaktiApi namazVakti = new namazVaktiApi(location.Latitude.ToString(), location.Longitude.ToString());
                 await vakitOncesiDataBaseOlustur();
                 await vaktindeDatabaseOlustur();
                await namazVakti.EzanSqlite();
                namazVakti.CurrentInsertTable();
+                namazVakti.LocationInsertTable();
                 StartActivity(new Intent(ApplicationContext, typeof(MainActivity)));
                 this.Finish();
             };

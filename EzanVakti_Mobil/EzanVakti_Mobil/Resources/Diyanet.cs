@@ -49,7 +49,7 @@ namespace EzanVakti_Mobil.Resources
              this.titleTakvimarka= baslik.Attributes["content"].Value.ToUpper();
             try
             {
-                this.TakvimOn = diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[3]/strong")[0].InnerText;// + "\n" + diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[5]")[0].InnerText;
+                this.TakvimOn = diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[3]/strong")[0].InnerText+ "\n" + diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[5]")[0].InnerText;
             }
             catch(Exception ex)
             {

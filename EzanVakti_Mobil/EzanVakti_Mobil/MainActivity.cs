@@ -267,6 +267,30 @@ namespace EzanVakti_Mobil
             }
         }
 
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if(data.GetStringExtra("menu")=="miladi")
+            {
+                            Bundle bundle = new Bundle();
+            bundle.PutBoolean("status", true);
+            
+            FragmentMonthly aylikfragment = new FragmentMonthly();
+            AndroidX.Fragment.App.FragmentManager manager = this.SupportFragmentManager;
+            aylikfragment.Arguments = bundle;
+            aylikfragment.Show(manager, "dialog");
+            }
+            else if (data.GetStringExtra("menu") == "hicri")
+            {
+                Bundle bundle = new Bundle();
+                bundle.PutBoolean("status", false);
+
+                FragmentMonthly aylikfragment = new FragmentMonthly();
+                AndroidX.Fragment.App.FragmentManager manager = this.SupportFragmentManager;
+                aylikfragment.Arguments = bundle;
+                aylikfragment.Show(manager, "dialog");
+            }
+        }
         public void imsakClick(View v)
         {
             Bundle bundle = new Bundle();
@@ -397,7 +421,8 @@ namespace EzanVakti_Mobil
         {
             //AndroidX.AppCompat.Widget.PopupMenu menu = new AndroidX.AppCompat.Widget.PopupMenu(this, menubtn);
             //menu.MenuInflater.Inflate(Resource.Layout.activity_first_screen);
-            StartActivity(new Intent(ApplicationContext, typeof(MenuActivity)));
+         //   StartActivity(new Intent(ApplicationContext, typeof(MenuActivity)));
+            StartActivityForResult(new Intent(ApplicationContext, typeof(MenuActivity)), 12);
 
         }
 

@@ -27,7 +27,7 @@ namespace EzanVakti_Mobil.Resources.AlarmAyarlari
         public bool aksamAlarm { get; set; }
         public bool yatsiAlarm { get; set; }
 
-        public DateTime haftalikUpdate { get; set; }
+      // public DateTime haftalikUpdate { get; set; }
     }
 
     public class VaktindeAlarmDatabase
@@ -138,13 +138,13 @@ namespace EzanVakti_Mobil.Resources.AlarmAyarlari
             }
         }
 
-        public void UpdateTableTarih(VaktindeAlarmAyarlari vaktindeAlarm)
+       /* public void UpdateTableTarih(VaktindeAlarmAyarlari vaktindeAlarm)
         {
             using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "VaktindeAlarmAyarlari.db")))
             {
                 connection.Query<VaktindeAlarmAyarlari>("UPDATE VaktindeAlarmAyarlari set haftalikUpdate=? where Id=1", vaktindeAlarm.haftalikUpdate);
             }
-        }
+        }*/
         public bool deleteTable(object obj)
         {
             try
