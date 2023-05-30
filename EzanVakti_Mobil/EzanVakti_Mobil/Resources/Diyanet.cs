@@ -47,8 +47,15 @@ namespace EzanVakti_Mobil.Resources
              this.TakvimArka = diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[1]")[0].InnerText;
              var baslik = diyanetLink.SelectNodes("/html/head/meta[8]")[0];
              this.titleTakvimarka= baslik.Attributes["content"].Value.ToUpper();
-
-            this.TakvimOn = diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[3]/strong")[0].InnerText + "\n" + diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[5]")[0].InnerText;
+            try
+            {
+                this.TakvimOn = diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[3]/strong")[0].InnerText;// + "\n" + diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[5]")[0].InnerText;
+            }
+            catch(Exception ex)
+            {
+                this.TakvimOn = null;
+            }
+           
             
             /*  HttpClient client = new HttpClient();
             var response = await client.GetStringAsync("https://www.diyanethaber.com.tr/diyanet-takvimi");
@@ -99,8 +106,31 @@ namespace EzanVakti_Mobil.Resources
 
             html.LoadHtml(response2);
             var diyanetLink = html.DocumentNode;
-            this.BirHadis= diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[3]/em")[0].InnerText;
-            this.titleHadis = diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[4]")[0].InnerText;
+            try
+            {
+                this.BirHadis = diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[3]/em")[0].InnerText;
+                this.titleHadis = diyanetLink.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[4]")[0].InnerText;
+            }
+            catch(Exception ex)
+            {
+                this.BirHadis = null;
+                this.titleHadis= null;
+            }
+
+           
+        }
+        public async Task CallBirHadis2()
+        {
+            string response = await htmlclient.htmlProcess("https://www.diyanet.gov.tr");
+            html.LoadHtml(response);
+
+            var Links = html.DocumentNode;
+            string hadis = Links.SelectSingleNode("/html/body/div[2]/div/div[10]/div[2]/div[1]/a/p").InnerText;
+            string hadisSource = Links.SelectSingleNode("/html/body/div[2]/div/div[10]/div[2]/div[2]/p").InnerText;
+            string had = System.Net.WebUtility.HtmlDecode(hadis).Remove(0, 26);
+            this.BirHadis = had.Remove(had.Length-22); //.Remove(had.Length - 40);
+            this.titleHadis = System.Net.WebUtility.HtmlDecode(hadisSource);
+
         }
         public async Task CallBirDua()
         {
@@ -111,8 +141,9 @@ namespace EzanVakti_Mobil.Resources
             string dua = Links.SelectSingleNode("/html/body/div[2]/div/div[10]/div[3]/div/a/p").InnerText;
             string duaSource = Links.SelectSingleNode("/html/body/div[2]/div/div[10]/div[3]/div/div/p").InnerText;
             this.BirDua=System.Net.WebUtility.HtmlDecode(dua).Remove(0,26);
+            this.BirDua = this.BirDua.Remove(this.BirDua.Length - 22);
             this.titleDua = System.Net.WebUtility.HtmlDecode(duaSource);
-            
+          
         }
     }
 }

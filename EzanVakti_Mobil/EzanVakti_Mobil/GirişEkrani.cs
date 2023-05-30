@@ -6,6 +6,7 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using EzanVakti_Mobil.Resources;
+using EzanVakti_Mobil.Resources.AlarmAyarlari;
 using Java.Security;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,10 @@ namespace EzanVakti_Mobil
     public class GirişEkrani : AppCompatActivity
     {
         CancellationTokenSource cts;
-       
+        VakitOncesiAlarmAyarlari vakitOncesi;
+        VakitOncesiAlarmDatabase vakitOncesiDatabase;
+        VaktindeAlarmAyarlari vaktinde;
+        VaktindeAlarmDatabase vaktindeDatabase;
         public static string enlem;
         public static string boylam;
         public static int ay;
@@ -39,7 +43,8 @@ namespace EzanVakti_Mobil
                 namazVaktiApi.ay = dt.Month;
                 namazVaktiApi.yil = dt.Year;
                 namazVaktiApi namazVakti = new namazVaktiApi();
- 
+                await vakitOncesiDataBaseOlustur();
+                await vaktindeDatabaseOlustur();
                await namazVakti.EzanSqlite();
                namazVakti.CurrentInsertTable();
                 StartActivity(new Intent(ApplicationContext, typeof(MainActivity)));
@@ -73,7 +78,40 @@ namespace EzanVakti_Mobil
                 // Unable to get location
             }
         }
-
+        public Task vaktindeDatabaseOlustur()
+        {
+            vaktinde = new VaktindeAlarmAyarlari();
+            vaktindeDatabase=new VaktindeAlarmDatabase();
+            vaktindeDatabase.createDataBaseVaktindeAlarm();
+            vaktinde.imsakAlarm = false;
+            vaktinde.gunesAlarm= false;
+            vaktinde.ogleAlarm= false;
+            vaktinde.ikindiAlarm = false;
+            vaktinde.aksamAlarm = false;
+            vaktinde.yatsiAlarm = false;
+            vaktindeDatabase.InsertIntoTableVaktindeAlarm(vaktinde);
+            return Task.CompletedTask;
+        }
+        public Task vakitOncesiDataBaseOlustur()
+        {
+            vakitOncesi = new VakitOncesiAlarmAyarlari();
+            vakitOncesiDatabase=new VakitOncesiAlarmDatabase();
+            vakitOncesiDatabase.createDataBaseVaktindeAlarm();
+            vakitOncesi.imsakAlarm = false;
+            vakitOncesi.gunesAlarm = false;
+            vakitOncesi.ogleAlarm=false;
+            vakitOncesi.ikindiAlarm = false;
+            vakitOncesi.aksamAlarm = false;
+            vakitOncesi.yatsiAlarm = false;
+            vakitOncesi.imsakdkOncesi = 30;
+            vakitOncesi.gunesdkOncesi= 30;
+            vakitOncesi.ogledkOncesi = 30;
+            vakitOncesi.ikindidkOncesi = 30;
+            vakitOncesi.aksamdkOncesi = 30;
+            vakitOncesi.yatsidkOncesi= 30;
+            vakitOncesiDatabase.InsertIntoTableVaktindeAlarm(vakitOncesi);
+            return Task.CompletedTask;
+        }
        /* protected override void OnDisappearing()
         {
             if (cts != null && !cts.IsCancellationRequested)

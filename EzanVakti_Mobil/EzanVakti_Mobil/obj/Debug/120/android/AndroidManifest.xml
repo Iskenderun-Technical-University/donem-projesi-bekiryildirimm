@@ -26,6 +26,7 @@ activity android:name=".MenuActivity"
     <activity android:name="crc64715ccd8b43db7812.GirişEkrani" android:label="GirişEkrani" />
     <activity android:name="crc64715ccd8b43db7812.MainActivity" android:label="@string/app_name" android:theme="@style/AppTheme" />
     <activity android:name="crc64715ccd8b43db7812.MenuActivity" android:label="MenuActivity" android:theme="@style/AppTheme.CustomTheme" />
+    <receiver android:name="crc64715ccd8b43db7812.MyAlarmReceiver" />
     <activity android:name="crc64715ccd8b43db7812.SplashActivity1" android:exported="true" android:label="@string/app_name" android:noHistory="true" android:theme="@style/SplashScreen">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

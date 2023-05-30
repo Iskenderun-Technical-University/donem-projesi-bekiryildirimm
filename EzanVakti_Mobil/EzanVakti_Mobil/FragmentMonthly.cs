@@ -59,7 +59,7 @@ namespace EzanVakti_Mobil
            base.OnCreateView(inflater, container, savedInstanceState);
            
             var view = inflater.Inflate(Resource.Layout.fragment_bottomsheet_monthly_prayer_times, container, false);
-           recyclerView = view.FindViewById<RecyclerView>(Resource.Id.bsMonthlyRvPrayerTimes);
+            recyclerView = view.FindViewById<RecyclerView>(Resource.Id.bsMonthlyRvPrayerTimes);
             recyclerView.SetAdapter(adapter);
             view.FindViewById<TextView>(Resource.Id.bsMonthlyTvLocation).Text = namazVaktiApi.city;
       

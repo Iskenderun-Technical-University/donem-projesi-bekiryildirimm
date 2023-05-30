@@ -132,18 +132,18 @@ public final class R {
 		public static final int notification_main_column_container = 0x7f0801a9;
 		public static final int right_icon = 0x7f0801ce;
 		public static final int right_side = 0x7f0801cf;
-		public static final int tag_accessibility_actions = 0x7f08023d;
-		public static final int tag_accessibility_clickable_spans = 0x7f08023e;
-		public static final int tag_accessibility_heading = 0x7f08023f;
-		public static final int tag_accessibility_pane_title = 0x7f080240;
-		public static final int tag_screen_reader_focusable = 0x7f080244;
-		public static final int tag_transition_group = 0x7f080246;
-		public static final int tag_unhandled_key_event_manager = 0x7f080247;
-		public static final int tag_unhandled_key_listeners = 0x7f080248;
-		public static final int text = 0x7f08024b;
-		public static final int text2 = 0x7f08024c;
-		public static final int time = 0x7f08025c;
-		public static final int title = 0x7f08025d;
+		public static final int tag_accessibility_actions = 0x7f08023b;
+		public static final int tag_accessibility_clickable_spans = 0x7f08023c;
+		public static final int tag_accessibility_heading = 0x7f08023d;
+		public static final int tag_accessibility_pane_title = 0x7f08023e;
+		public static final int tag_screen_reader_focusable = 0x7f080242;
+		public static final int tag_transition_group = 0x7f080244;
+		public static final int tag_unhandled_key_event_manager = 0x7f080245;
+		public static final int tag_unhandled_key_listeners = 0x7f080246;
+		public static final int text = 0x7f080249;
+		public static final int text2 = 0x7f08024a;
+		public static final int time = 0x7f08025a;
+		public static final int title = 0x7f08025b;
 	}
 	public static final class integer {
 		public static final int status_bar_notification_info_maxnum = 0x7f090042;
@@ -160,20 +160,20 @@ public final class R {
 		public static final int notification_template_part_time = 0x7f0b006e;
 	}
 	public static final class string {
-		public static final int copy_toast_msg = 0x7f0f004a;
-		public static final int fallback_menu_item_copy_link = 0x7f0f0050;
-		public static final int fallback_menu_item_open_in_browser = 0x7f0f0051;
-		public static final int fallback_menu_item_share_link = 0x7f0f0052;
-		public static final int status_bar_notification_info_overflow = 0x7f0f00c4;
+		public static final int copy_toast_msg = 0x7f10004a;
+		public static final int fallback_menu_item_copy_link = 0x7f100050;
+		public static final int fallback_menu_item_open_in_browser = 0x7f100051;
+		public static final int fallback_menu_item_share_link = 0x7f100052;
+		public static final int status_bar_notification_info_overflow = 0x7f1000c4;
 	}
 	public static final class style {
-		public static final int TextAppearance_Compat_Notification = 0x7f1001d0;
-		public static final int TextAppearance_Compat_Notification_Info = 0x7f1001d1;
-		public static final int TextAppearance_Compat_Notification_Line2 = 0x7f1001d2;
-		public static final int TextAppearance_Compat_Notification_Time = 0x7f1001d3;
-		public static final int TextAppearance_Compat_Notification_Title = 0x7f1001d4;
-		public static final int Widget_Compat_NotificationActionContainer = 0x7f100337;
-		public static final int Widget_Compat_NotificationActionText = 0x7f100338;
+		public static final int TextAppearance_Compat_Notification = 0x7f1101d0;
+		public static final int TextAppearance_Compat_Notification_Info = 0x7f1101d1;
+		public static final int TextAppearance_Compat_Notification_Line2 = 0x7f1101d2;
+		public static final int TextAppearance_Compat_Notification_Time = 0x7f1101d3;
+		public static final int TextAppearance_Compat_Notification_Title = 0x7f1101d4;
+		public static final int Widget_Compat_NotificationActionContainer = 0x7f110337;
+		public static final int Widget_Compat_NotificationActionText = 0x7f110338;
 	}
 	public static final class styleable {
 		public static final int[] ColorStateListItem = new int[] { 0x010101a5, 0x0101031f, 0x01010647, 0x7f03002f, 0x7f030275 };
@@ -216,6 +216,6 @@ public final class R {
 		public static final int GradientColorItem_android_offset = 1;
 	}
 	public static final class xml {
-		public static final int image_share_filepaths = 0x7f120000;
+		public static final int image_share_filepaths = 0x7f130000;
 	}
 }

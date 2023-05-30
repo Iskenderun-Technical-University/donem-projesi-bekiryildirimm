@@ -37,7 +37,7 @@ namespace EzanVakti_Mobil
 
         }
         public void onMenuClick(View v) { 
-       this.Finish();
+           this.Finish();
         }
         public void onSettingClick(View v)
         {

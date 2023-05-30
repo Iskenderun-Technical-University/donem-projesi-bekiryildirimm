@@ -22,6 +22,8 @@ namespace EzanVakti_Mobil.Resources.Ayarlar
         public int month { get; set; }
         public int year { get; set; }
 
+    //   public DateTime haftalikDate { get; set; }
+
     }
     public class CurrentDatabase
     {

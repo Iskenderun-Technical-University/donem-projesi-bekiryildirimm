@@ -41,14 +41,13 @@ background;obj\Debug\120\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Debug\120\res\mipmap-anydpi-v26\ic_launcher_round.xml
 bitmap;obj\Debug\120\res\drawable\splash_screen.xml
 Button;obj\Debug\120\res\layout\activity_first_screen.xml
-cache-path;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\46\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+cache-path;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\48\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\120\res\values\colors.xml
 color;obj\Debug\120\res\values\ic_launcher_background.xml
 com.google.android.material.appbar.AppBarLayout;obj\Debug\120\res\layout\activity_main.xml
 com.google.android.material.appbar.CollapsingToolbarLayout;obj\Debug\120\res\layout\activity_main.xml
 com.google.android.material.button.MaterialButton;obj\Debug\120\res\layout\fragment_bottomsheet_set_alarms.xml
 com.google.android.material.button.MaterialButtonToggleGroup;obj\Debug\120\res\layout\fragment_bottomsheet_set_alarms.xml
-com.google.android.material.tabs.TabLayout;obj\Debug\120\res\layout\activity_main.xml
 corners;obj\Debug\120\res\drawable\bg_background_prayer.xml
 corners;obj\Debug\120\res\drawable\bg_bottomsheet.xml
 corners;obj\Debug\120\res\drawable\bg_bottomsheet_white.xml
@@ -56,8 +55,8 @@ corners;obj\Debug\120\res\drawable\bg_main_location.xml
 corners;obj\Debug\120\res\drawable\horizontal_line.xml
 element;obj\Debug\120\res\drawable\iste_preloader_favicon.xml
 enum;obj\Debug\120\res\values\attrs.xml
-external-cache-path;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\46\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-external-path;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\46\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-cache-path;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\48\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\48\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 flag;obj\Debug\120\res\values\attrs.xml
 foreground;obj\Debug\120\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\120\res\mipmap-anydpi-v26\ic_launcher_round.xml
@@ -112,7 +111,7 @@ path;obj\Debug\120\res\drawable\iste_preloader_favicon.xml
 path;obj\Debug\120\res\drawable\location_tab_indicator_add.xml
 path;obj\Debug\120\res\drawable\toolbar_bg_curved.xml
 path;obj\Debug\120\res\drawable\toolbar_bg_rectangle.xml
-paths;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\46\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+paths;C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\lp\48\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Debug\120\res\layout\fragment_bottomsheet_monthly_prayer_times.xml
 RelativeLayout;obj\Debug\120\res\layout\activity_first_screen.xml
 RelativeLayout;obj\Debug\120\res\layout\activity_main.xml
@@ -159,7 +158,6 @@ solid;obj\Debug\120\res\drawable\horizontal_line.xml
 string;obj\Debug\120\res\values\strings.xml
 stroke;obj\Debug\120\res\drawable\bg_background_prayer.xml
 style;obj\Debug\120\res\values\styles.xml
-TextSwitcher;obj\Debug\120\res\layout\activity_main.xml
 TextView;obj\Debug\120\res\layout\activity_main.xml
 translate;obj\Debug\120\res\anim\design_bottom_sheet_slide_in.xml
 translate;obj\Debug\120\res\anim\design_bottom_sheet_slide_out.xml
