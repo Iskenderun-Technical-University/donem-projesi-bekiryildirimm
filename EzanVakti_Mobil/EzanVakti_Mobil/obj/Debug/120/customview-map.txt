@@ -15,11 +15,13 @@ androidx.appcompat.widget.AppCompatImageButton;obj\Debug\120\res\layout\fragment
 androidx.appcompat.widget.AppCompatImageView;obj\Debug\120\res\layout\activity_locations_edit.xml
 androidx.appcompat.widget.AppCompatImageView;obj\Debug\120\res\layout\activity_main.xml
 androidx.appcompat.widget.AppCompatImageView;obj\Debug\120\res\layout\activity_menu.xml
+androidx.appcompat.widget.AppCompatImageView;obj\Debug\120\res\layout\fragment_bottomsheet_location.xml
 androidx.appcompat.widget.AppCompatImageView;obj\Debug\120\res\layout\fragment_bottomsheet_location_chooser_huawei.xml
 androidx.appcompat.widget.AppCompatImageView;obj\Debug\120\res\layout\layout_prayer_times.xml
 androidx.appcompat.widget.AppCompatTextView;obj\Debug\120\res\layout\activity_locations_edit.xml
 androidx.appcompat.widget.AppCompatTextView;obj\Debug\120\res\layout\activity_main.xml
 androidx.appcompat.widget.AppCompatTextView;obj\Debug\120\res\layout\activity_menu.xml
+androidx.appcompat.widget.AppCompatTextView;obj\Debug\120\res\layout\fragment_bottomsheet_location.xml
 androidx.appcompat.widget.AppCompatTextView;obj\Debug\120\res\layout\fragment_bottomsheet_location_chooser_huawei.xml
 androidx.appcompat.widget.AppCompatTextView;obj\Debug\120\res\layout\fragment_bottomsheet_monthly_prayer_times.xml
 androidx.appcompat.widget.AppCompatTextView;obj\Debug\120\res\layout\fragment_bottomsheet_set_alarms.xml
@@ -29,6 +31,7 @@ androidx.appcompat.widget.AppCompatTextView;obj\Debug\120\res\layout\layout_pray
 androidx.appcompat.widget.LinearLayoutCompat;obj\Debug\120\res\layout\activity_locations_edit.xml
 androidx.appcompat.widget.LinearLayoutCompat;obj\Debug\120\res\layout\activity_main.xml
 androidx.appcompat.widget.LinearLayoutCompat;obj\Debug\120\res\layout\activity_menu.xml
+androidx.appcompat.widget.LinearLayoutCompat;obj\Debug\120\res\layout\fragment_bottomsheet_location.xml
 androidx.appcompat.widget.LinearLayoutCompat;obj\Debug\120\res\layout\fragment_bottomsheet_location_chooser_huawei.xml
 androidx.appcompat.widget.LinearLayoutCompat;obj\Debug\120\res\layout\fragment_bottomsheet_monthly_prayer_times.xml
 androidx.appcompat.widget.LinearLayoutCompat;obj\Debug\120\res\layout\fragment_bottomsheet_set_alarms.xml
@@ -59,12 +62,14 @@ com.google.android.material.button.MaterialButton;obj\Debug\120\res\layout\activ
 com.google.android.material.button.MaterialButton;obj\Debug\120\res\layout\fragment_bottomsheet_set_alarms.xml
 com.google.android.material.button.MaterialButtonToggleGroup;obj\Debug\120\res\layout\fragment_bottomsheet_set_alarms.xml
 com.google.android.material.card.MaterialCardView;obj\Debug\120\res\layout\activity_locations_edit.xml
+com.google.android.material.card.MaterialCardView;obj\Debug\120\res\layout\fragment_bottomsheet_location.xml
 com.google.android.material.card.MaterialCardView;obj\Debug\120\res\layout\fragment_bottomsheet_location_chooser_huawei.xml
 com.google.android.material.switchmaterial.SwitchMaterial;obj\Debug\120\res\layout\activity_locations_edit.xml
 corners;obj\Debug\120\res\drawable\bg_background_prayer.xml
 corners;obj\Debug\120\res\drawable\bg_bottomsheet.xml
 corners;obj\Debug\120\res\drawable\bg_bottomsheet_white.xml
 corners;obj\Debug\120\res\drawable\bg_main_location.xml
+corners;obj\Debug\120\res\drawable\circle.xml
 corners;obj\Debug\120\res\drawable\horizontal_line.xml
 element;obj\Debug\120\res\drawable\iste_preloader_favicon.xml
 enum;obj\Debug\120\res\values\attrs.xml
@@ -94,6 +99,7 @@ path;obj\Debug\120\res\drawable\ic_calendar.xml
 path;obj\Debug\120\res\drawable\ic_calendar_primary.xml
 path;obj\Debug\120\res\drawable\ic_facebook.xml
 path;obj\Debug\120\res\drawable\ic_kaaba.xml
+path;obj\Debug\120\res\drawable\ic_location.xml
 path;obj\Debug\120\res\drawable\ic_melody.xml
 path;obj\Debug\120\res\drawable\ic_menu.xml
 path;obj\Debug\120\res\drawable\ic_menu_apps.xml
@@ -133,6 +139,7 @@ RelativeLayout;obj\Debug\120\res\layout\activity_first_screen.xml
 RelativeLayout;obj\Debug\120\res\layout\activity_locations_edit.xml
 RelativeLayout;obj\Debug\120\res\layout\activity_main.xml
 RelativeLayout;obj\Debug\120\res\layout\activity_menu.xml
+RelativeLayout;obj\Debug\120\res\layout\fragment_bottomsheet_location.xml
 RelativeLayout;obj\Debug\120\res\layout\fragment_bottomsheet_location_chooser_huawei.xml
 RelativeLayout;obj\Debug\120\res\layout\fragment_bottomsheet_monthly_prayer_times.xml
 resources;obj\Debug\120\res\values\attrs.xml
@@ -175,6 +182,8 @@ solid;obj\Debug\120\res\drawable\circle.xml
 solid;obj\Debug\120\res\drawable\horizontal_line.xml
 string;obj\Debug\120\res\values\strings.xml
 stroke;obj\Debug\120\res\drawable\bg_background_prayer.xml
+stroke;obj\Debug\120\res\drawable\bg_bottomsheet_white.xml
+stroke;obj\Debug\120\res\drawable\circle.xml
 style;obj\Debug\120\res\values\styles.xml
 TextView;obj\Debug\120\res\layout\activity_main.xml
 translate;obj\Debug\120\res\anim\design_bottom_sheet_slide_in.xml
@@ -191,6 +200,7 @@ vector;obj\Debug\120\res\drawable\ic_calendar.xml
 vector;obj\Debug\120\res\drawable\ic_calendar_primary.xml
 vector;obj\Debug\120\res\drawable\ic_facebook.xml
 vector;obj\Debug\120\res\drawable\ic_kaaba.xml
+vector;obj\Debug\120\res\drawable\ic_location.xml
 vector;obj\Debug\120\res\drawable\ic_melody.xml
 vector;obj\Debug\120\res\drawable\ic_menu.xml
 vector;obj\Debug\120\res\drawable\ic_menu_apps.xml

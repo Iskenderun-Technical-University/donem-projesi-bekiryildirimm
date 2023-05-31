@@ -290,6 +290,16 @@ namespace EzanVakti_Mobil
                 aylikfragment.Arguments = bundle;
                 aylikfragment.Show(manager, "dialog");
             }
+            else if (data.GetStringExtra("menu") == "konum")
+            {
+                Bundle bundle = new Bundle();
+                bundle.PutBoolean("status", false);
+
+                FragmentLocation aylikfragment = new FragmentLocation();
+                AndroidX.Fragment.App.FragmentManager manager = this.SupportFragmentManager;
+                aylikfragment.Arguments = bundle;
+                aylikfragment.Show(manager, "dialog");
+            }
         }
         public void imsakClick(View v)
         {

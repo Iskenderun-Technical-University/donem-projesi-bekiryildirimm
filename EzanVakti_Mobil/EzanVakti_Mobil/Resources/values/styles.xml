@@ -120,6 +120,9 @@
 	<style name="BottomSheetWhiteBg" parent="@style/Theme.MaterialComponents.Light.BottomSheetDialog">
 		<item name="android:background">@drawable/bg_bottomsheet_white</item>
 	</style>
+	<style name="BottomSheetWhiteBg2" parent="@style/Theme.MaterialComponents.Light.BottomSheetDialog">
+		<item name="android:background">@drawable/circle</item>
+	</style>
 	<style name="Theme.MaterialComponents.Light.Dialog" parent="@style/Base.Theme.MaterialComponents.Light.Dialog" />
 	<style name="Base.Theme.MaterialComponents.Light.Dialog" parent="@style/Base.V21.Theme.MaterialComponents.Light.Dialog" />
 	<style name="Base.V21.Theme.MaterialComponents.Light.Dialog" parent="@style/Base.V14.Theme.MaterialComponents.Light.Dialog">
