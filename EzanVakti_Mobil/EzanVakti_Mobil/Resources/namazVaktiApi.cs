@@ -243,6 +243,7 @@ namespace EzanVakti_Mobil.Resources
             location.ilce = ilce;
             location.mahalle = mahalle;
             location.cadde = cadde;
+            location.full=fulladres;
             database.UpdateTablelocation(location);
             
         }

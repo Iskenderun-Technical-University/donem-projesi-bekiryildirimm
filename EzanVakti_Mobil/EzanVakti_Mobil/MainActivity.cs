@@ -29,6 +29,11 @@ using Android.Media;
 using Android.Content.Res;
 using System.Runtime.Remoting.Contexts;
 using Java.Security;
+using AndroidX.Core.Content;
+using System.Drawing;
+using Android.Graphics;
+using Android.Graphics.Drawables.Shapes;
+using Java.Time.Format;
 //using System.Timers;
 //using System.Threading.Timer;
 
@@ -46,8 +51,9 @@ namespace EzanVakti_Mobil
         DateTime bugun = DateTime.Now;
         namazVaktiData ezan,ezan1;
         TextView kalanVakit,kalanZaman;
-        AppCompatTextView diyanet,ayetTitle,hicritxt,miladitxt,dhurur;
+        AppCompatTextView diyanet,ayetTitle,hicritxt,miladitxt,dhurur,imsakTitle,gunesTitle, ogleTitle, ikindiTitle, aksamTitle, yatsiTitle,imsakTv, gunesTv, ogleTv, ikindiTv, aksamTv, yatsiTv;
         ConstraintLayout gunesclyt, imsakclyt, ogleclyt, ikindiclyt, aksamclyt, yatsiclyt;
+        AppCompatImageView imgImsak, imgGunes, imgOgle, imgIkindi, imgAksam, imgYatsi;
         RelativeLayout menubtn;
         View v;
        System.Timers.Timer timer;
@@ -85,16 +91,51 @@ namespace EzanVakti_Mobil
             ikindiclyt = FindViewById<ConstraintLayout>(Resource.Id.clytAsr);
             aksamclyt = FindViewById<ConstraintLayout>(Resource.Id.clytMaghrib);
             yatsiclyt = FindViewById<ConstraintLayout>(Resource.Id.clytIsha);
-            // dhurur = FindViewById<AppCompatTextView>(Resource.Id.tvDhuhrTitle);
-            //   dhurur.SetTextColor(Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Black));
-            //  imsakcons.bac
-            /* MediaPlayer media = new MediaPlayer();
-             AssetManager asset = this.Assets;
-             AssetFileDescriptor desc = asset.OpenFd("sounds/uyaritonu.mp3");
-            await media.SetDataSourceAsync(desc);
-             media.Prepare();
-             media.Start();*/
+            imgImsak = FindViewById<AppCompatImageView>(Resource.Id.imgFajrIc);
+           imgGunes = FindViewById<AppCompatImageView>(Resource.Id.imgSunIc);
+            imgOgle= FindViewById<AppCompatImageView>(Resource.Id.imgDhuhrIc);
+            imgIkindi= FindViewById<AppCompatImageView>(Resource.Id.imgAsrIc);
+            imgAksam= FindViewById<AppCompatImageView>(Resource.Id.imgMaghribIc);
+            imgYatsi = FindViewById<AppCompatImageView>(Resource.Id.imgIshaIc);
+           imsakTitle = FindViewById<AppCompatTextView>(Resource.Id.tvFajrTitle);
+             gunesTitle= FindViewById<AppCompatTextView>(Resource.Id.tvSunTitle);
+             ogleTitle= FindViewById<AppCompatTextView>(Resource.Id.tvDhuhrTitle);
+             ikindiTitle= FindViewById<AppCompatTextView>(Resource.Id.tvAsrTitle);
+             aksamTitle= FindViewById<AppCompatTextView>(Resource.Id.tvMaghribTitle);
+            yatsiTitle = FindViewById<AppCompatTextView>(Resource.Id.tvIshaTitle);
+           imsakTv = FindViewById<AppCompatTextView>(Resource.Id.tvImsak);
+            gunesTv= FindViewById<AppCompatTextView>(Resource.Id.tvGunes);
+            ogleTv= FindViewById<AppCompatTextView>(Resource.Id.tvOgle);
+           ikindiTv = FindViewById<AppCompatTextView>(Resource.Id.tvIkindi);
+            aksamTv= FindViewById<AppCompatTextView>(Resource.Id.tvAksam);
+            yatsiTv = FindViewById<AppCompatTextView>(Resource.Id.tvYatsi);
+            //   var dr=(VectorDrawable)imgYatsi.Drawable;
+            // dr.SetTint(Resource.Color.colorPrimary);
+            /*imgYatsi.SetImageResource(Resource.Drawable.ic_prayer_time_isha_primary_color);
+            Android.Graphics.Color colorPrm = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimary));
+            Android.Graphics.Color colorPrmDark = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimaryDark));
+            var shape = yatsiclyt.Background as GradientDrawable;
+            yatsiTitle.SetTextColor(colorPrm);
+            yatsiTv.SetTextColor(colorPrm);
+            int dark = Resource.Color.colorPrimaryDark;
+            int[] color = new int[3] { dark, dark, dark };
+            
+            //  color = { Resource.Color.colorPrimaryDark };
+           // shape.SetColors(color);
+            shape.SetStroke(2, colorPrm);*/
+           // shape.SetColor(dark);
+     //       yatsiclyt.SetBackgroundColor(colorPrmDark);
+   //         shape.
+           // shape.SetGradientType(GradientType.RadialGradient);
+            //  shape.SetColorFilter(colorPrm, PorterDuff.Mode.);
+            //  shape.SetColor(colorPrm);
+            //  shape.SetTint(Android.Graphics.Color.Black);
 
+
+            // shape.
+            //     dr.SetTint(Resource.Color.colorPrimary);
+            //   dr.SetColorFilter(colorPrm,PorterDuff.Mode.Add);
+            //  Android.Graphics.Color color=new Android.Graphics.Color(ContextCompat.GetColor())
             imsakclyt.Click += delegate
             {
                 imsakClick(v);
@@ -265,6 +306,7 @@ namespace EzanVakti_Mobil
             {
 
             }
+           
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
@@ -299,6 +341,13 @@ namespace EzanVakti_Mobil
                 AndroidX.Fragment.App.FragmentManager manager = this.SupportFragmentManager;
                 aylikfragment.Arguments = bundle;
                 aylikfragment.Show(manager, "dialog");
+            }
+            else if (data.GetStringExtra("menu") == "kuran")
+            {
+                Bundle bundle = new Bundle();
+                bundle.PutBoolean("status", true);
+                StartActivity(new Intent(ApplicationContext, typeof(BrowserActivity)));
+
             }
         }
         public void imsakClick(View v)
@@ -676,6 +725,50 @@ namespace EzanVakti_Mobil
 
         }
 
+        public void currentPrayerTimebg(int icon,ConstraintLayout vakitClyt,AppCompatTextView title, AppCompatTextView tv,AppCompatImageView iconsrc)
+        {
+            iconsrc.SetImageResource(icon);
+            Drawable shape2 = vakitClyt.Background;
+            Android.Graphics.Color colorPrm = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimary));
+            Android.Graphics.Color colorPrmDark = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimaryDark));
+            var shape = vakitClyt.Background as GradientDrawable;
+           shape2= shape.Mutate();
+            title.SetTextColor(colorPrm);
+            tv.SetTextColor(colorPrm);
+            int dark = Resource.Color.colorPrimaryDark;
+            int[] color = new int[3] { dark, dark, dark };
+
+
+
+            shape.SetStroke(2, colorPrm);
+
+    
+
+            shape.SetColors(color);
+  
+        }
+        public void pastPrayerTimebg(int icon, ConstraintLayout vakitClyt, AppCompatTextView title, AppCompatTextView tv, AppCompatImageView iconsrc)
+        {
+            iconsrc.SetImageResource(icon);
+          //  Drawable shape2 = vakitClyt.Background;
+            Android.Graphics.Color colorPrm = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.clrPrayerTimePastIcon));
+            Android.Graphics.Color colorPrmDark = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimaryDark));
+        //    var shape = vakitClyt.Background as GradientDrawable;
+            title.SetTextColor(colorPrm);
+            tv.SetTextColor(colorPrm);
+            int dark = Resource.Color.colorPrimaryDark;
+            int[] color = new int[3] { dark, dark, dark };
+
+
+            vakitClyt.SetBackgroundResource(Resource.Drawable.bg_background_prayer);
+           // shape.SetStroke(2, colorPrm);
+            
+
+
+           // shape.SetColors(color);
+
+        }
+
         private void setAlarm(long millisec,bool kontrol)
         {
 
@@ -710,6 +803,7 @@ namespace EzanVakti_Mobil
                 kalanVakit.Text ="İMSAK VAKTİNE KALAN";
                 TimeSpan d = DateTime.Parse(ezan1.imsak).Subtract(DateTime.Parse(simdi.ToString("HH:mm:ss tt")));
                 kalanZaman.Text = d.ToString();
+                currentPrayerTimebg(Resource.Drawable.ic_prayer_time_isha_primary_color, yatsiclyt, yatsiTitle, yatsiTv,imgYatsi);
                 
             }
             else if (simdi.Hour <= Int32.Parse(ezan1.gunes.Remove(2)) && (simdi.Hour < Int32.Parse(ezan1.gunes.Remove(2)) || simdi.Minute < Int32.Parse(ezan1.gunes.Remove(0, 3))))
@@ -717,22 +811,30 @@ namespace EzanVakti_Mobil
                 kalanVakit.Text = "GÜNES VAKTİNE KALAN";
                 TimeSpan d = DateTime.Parse(ezan1.gunes).Subtract(DateTime.Parse(simdi.ToString("HH:mm:ss tt")));
                 kalanZaman.Text = d.ToString();
+                
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_isha, yatsiclyt, yatsiTitle, yatsiTv, imgYatsi);
+                currentPrayerTimebg(Resource.Drawable.ic_prayer_time_fajr_primary_color, imsakclyt, imsakTitle, imsakTv, imgImsak);
             }
             else if (simdi.Hour <= Int32.Parse(ezan1.ogle.Remove(2)) && (simdi.Hour < Int32.Parse(ezan1.ogle.Remove(2)) || simdi.Minute < Int32.Parse(ezan1.ogle.Remove(0, 3))))
             {
                 kalanVakit.Text = "ÖĞLE EZANINA KALAN";
                 TimeSpan d = DateTime.Parse(ezan1.ogle).Subtract(DateTime.Parse(simdi.ToString("HH:mm:ss tt")));
                 kalanZaman.Text = d.ToString();
-
+               
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_fajr_past, imsakclyt, imsakTitle, imsakTv, imgImsak);
+                currentPrayerTimebg(Resource.Drawable.ic_prayer_time_sun_primary_color, gunesclyt, gunesTitle, gunesTv, imgGunes);
             }
             else if (simdi.Hour <= Int32.Parse(ezan1.ikindi.Remove(2)) && (simdi.Hour < Int32.Parse(ezan1.ikindi.Remove(2)) || simdi.Minute < Int32.Parse(ezan1.ikindi.Remove(0, 3))))
             {
                 kalanVakit.Text = "İKİNDİ EZANINA KALAN";
                 TimeSpan d = DateTime.Parse(ezan1.ikindi).Subtract(DateTime.Parse(simdi.ToString("HH:mm:ss tt")));
                 kalanZaman.Text = d.ToString();
-                
-                    
-
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_fajr_past, imsakclyt, imsakTitle, imsakTv, imgImsak);
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_sun_past, gunesclyt, gunesTitle, gunesTv, imgGunes);
+                currentPrayerTimebg(Resource.Drawable.ic_prayer_time_dhuhr_primary_color,ogleclyt ,ogleTitle ,ogleTv,imgOgle );
+               
+               
+            
 
 
             }
@@ -741,14 +843,50 @@ namespace EzanVakti_Mobil
                 kalanVakit.Text = "AKŞAM EZANINA KALAN";
                 TimeSpan d = DateTime.Parse(ezan1.aksam).Subtract(DateTime.Parse(simdi.ToString("HH:mm:ss tt")));
                 kalanZaman.Text = d.ToString();
-                dhurur.SetTextColor(Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Black));
+               
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_fajr_past, imsakclyt, imsakTitle, imsakTv, imgImsak);
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_sun_past, gunesclyt, gunesTitle, gunesTv, imgGunes);
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_dhuhr_past, ogleclyt, ogleTitle, ogleTv, imgOgle);
+                currentPrayerTimebg(Resource.Drawable.ic_prayer_time_asr_primary_color, ikindiclyt, ikindiTitle, ikindiTv, imgIkindi);
+                //      dhurur.SetTextColor(Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Black));
+                /*      imgYatsi.SetImageResource(Resource.Drawable.ic_prayer_time_isha_primary_color);
+                      Android.Graphics.Color colorPrm = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimary));
+                      Android.Graphics.Color colorPrmDark = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimaryDark));
+                      var shape = yatsiclyt.Background as GradientDrawable;
+                      yatsiTitle.SetTextColor(colorPrm);
+                      yatsiTv.SetTextColor(colorPrm);
+                      int dark = Resource.Color.colorPrimaryDark;
+                      int[] color = new int[3] { dark, dark, dark };
 
+                      //  color = { Resource.Color.colorPrimaryDark };
+                      // shape.SetColors(color);
+
+                      var shape2 = yatsiclyt.Background;
+                     // shape2.SetColorFilter(Android.Graphics.Color.Black, PorterDuff.Mode.DstOver);
+                      shape.SetStroke(2, colorPrm);
+                    //  shape.SetGradientType(GradientType.RadialGradient);
+                      // shape.SetColor;
+
+                   //   shape.SetColorFilter(Android.Graphics.Color.Black, PorterDuff.Mode.DstAtop);
+                      //   shape.SetColor(colorPrmDark);
+                      shape.SetColors(color);*/
+                //  yatsiclyt.SetBackgroundResource(Resource.Drawable.bg_background_prayer);
+                // yatsiclyt.Background = Resource.Drawable.bg_background_prayer;
             }
             else if (simdi.Hour <= Int32.Parse(ezan1.yatsi.Remove(2)) && (simdi.Hour < Int32.Parse(ezan1.yatsi.Remove(2)) || simdi.Minute < Int32.Parse(ezan1.yatsi.Remove(0, 3))))
             {
                 kalanVakit.Text = "YATSI EZANINA KALAN";
                 TimeSpan d = DateTime.Parse(ezan1.yatsi).Subtract(DateTime.Parse(simdi.ToString("HH:mm:ss tt")));
                 kalanZaman.Text = d.ToString();
+                //yatsiclyt.SetBackgroundResource(Resource.Drawable.bg_background_prayer);
+               
+
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_fajr_past, imsakclyt, imsakTitle, imsakTv, imgImsak);
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_sun_past, gunesclyt, gunesTitle, gunesTv, imgGunes);
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_dhuhr_past, ogleclyt, ogleTitle, ogleTv, imgOgle);
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_asr_past, ikindiclyt, ikindiTitle, ikindiTv, imgIkindi);
+                currentPrayerTimebg(Resource.Drawable.ic_prayer_time_maghrib_primary_color, aksamclyt, aksamTitle, aksamTv, imgAksam);
+               
             }
             else
             {
@@ -758,9 +896,15 @@ namespace EzanVakti_Mobil
                 TimeSpan d = (DateTime.Parse(ezan1.imsak).Subtract(DateTime.Parse(saat.ToString("HH:mm:ss tt")))).Add(DateTime.Parse(saat1.ToString("HH:mm:ss tt")).Subtract(DateTime.Parse(simdi.ToString("HH:mm:ss tt"))));
               kalanZaman.Text = d.ToString();
                 kalanVakit.Text = "İMSAK VAKTİNE KALAN";
-
-
+                
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_sun_past, gunesclyt, gunesTitle, gunesTv, imgGunes);
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_dhuhr_past, ogleclyt, ogleTitle, ogleTv, imgOgle);
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_asr_past, ikindiclyt, ikindiTitle, ikindiTv, imgIkindi);
+                pastPrayerTimebg(Resource.Drawable.ic_prayer_time_maghrib_past, aksamclyt, aksamTitle, aksamTv,imgAksam);
+                currentPrayerTimebg(Resource.Drawable.ic_prayer_time_isha_primary_color, yatsiclyt, yatsiTitle, yatsiTv, imgYatsi);
+                
             }
+
 
         }
         private void LoadHaftalikEzanVakti()
@@ -770,9 +914,13 @@ namespace EzanVakti_Mobil
 
         foreach(var item in data)
             {
-                if(bugun.Day<=item.GregDay&&bugun.Day+6>=item.GregDay&&bugun.Month==item.GregMonthNumber)
+                if ((bugun.Day <= item.GregDay && bugun.Day + 6 >= item.GregDay && bugun.Month == item.GregMonthNumber) || (i < 7&&i!=0))
+                {
                     weeklydata.Add(item);
+                    i++;
+                }
             }
+            i = 0;
             ada = new RecycleAdapter(this, weeklydata);
             rcData.SetAdapter(ada);
         }

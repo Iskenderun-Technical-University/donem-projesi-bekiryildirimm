@@ -43,6 +43,7 @@ namespace EzanVakti_Mobil
                 LocationDatabase database = new LocationDatabase();
                 EzanVakti_Mobil.Resources.AyarlarDataBase.Location streetlocation = new EzanVakti_Mobil.Resources.AyarlarDataBase.Location();
                 Current current= new Current();
+                
                 // CurrentDatabase.selectTableCurrent(current);
                 streetlocation = LocationDatabase.selectTable();
                 current = CurrentDatabase.selectTable();
@@ -61,12 +62,14 @@ namespace EzanVakti_Mobil
                     var location = await GetCurrentLocation();
                     namazVaktiApi.enlem = location.Latitude.ToString();
                     namazVaktiApi.boylam = location.Longitude.ToString();
-                    namazVaktiApi.ay = dt.Month;
+                    DateTime plusOne = dt.AddMonths(1);
+                    namazVaktiApi.ay = plusOne.Month;
                     namazVaktiApi.yil = dt.Year;
                     namazVaktiApi namazVakti = new namazVaktiApi();
 
                     await namazVakti.EzanSqlite();
                     namazVakti.LocationUpdateTable();
+                    namazVaktiApi.ay = dt.Month;
                     namazVakti.CurrentUpdateTable();
                     StartActivity(new Intent(ApplicationContext, typeof(MainActivity)));
                 }

@@ -2507,3 +2507,7 @@ C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVak
 C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\layout\fragment_bottomsheet_location.xml
 C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\drawable\ic_location.xml
 C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\android\src\crc64715ccd8b43db7812\FragmentLocation.java
+C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\layout\activity_browser.xml
+C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\res\drawable\opened_book_3158.xml
+C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\android\src\crc64715ccd8b43db7812\Baglanti.java
+C:\Users\manas\source\repos\donem-projesi-bekiryildirimm\EzanVakti_Mobil\EzanVakti_Mobil\obj\Debug\120\android\src\crc64715ccd8b43db7812\BrowserActivity.java

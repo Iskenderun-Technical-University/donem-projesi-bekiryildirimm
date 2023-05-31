@@ -16,7 +16,7 @@ namespace EzanVakti_Mobil
     [Activity(Label = "MenuActivity",Theme = "@style/AppTheme.CustomTheme")]
     public class MenuActivity : AppCompatActivity
     {
-        LinearLayoutCompat settingbtn,locationbtn,miladibtn,hicribtn;
+        LinearLayoutCompat settingbtn,locationbtn,miladibtn,hicribtn,kuranbtn;
         RelativeLayout closebtn;
         View v;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -30,6 +30,11 @@ namespace EzanVakti_Mobil
             miladibtn= FindViewById<LinearLayoutCompat>(Resource.Id.menuLlytMiladibtn);
             hicribtn= FindViewById<LinearLayoutCompat>(Resource.Id.menuLlytHijriBtn);
 
+            kuranbtn=FindViewById<LinearLayoutCompat>(Resource.Id.menuLlytMosquesBtn);
+            kuranbtn.Click += delegate
+            {
+                onKuranClick(v);
+            };
             miladibtn.Click += delegate
             {
                 onMenuMiladiClick(v);
@@ -53,7 +58,13 @@ namespace EzanVakti_Mobil
 
         }
 
-       
+       public void onKuranClick(View v)
+        {
+            Intent intent = new Intent();
+            intent.PutExtra("menu", "kuran");
+            SetResult(Result.Ok, intent);
+            Finish();
+        }
         public void onMenuMiladiClick(View v)
         {
             Intent intent = new Intent();

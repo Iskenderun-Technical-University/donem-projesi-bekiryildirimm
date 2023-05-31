@@ -14,8 +14,8 @@
             <!--com.google.android.material.button.MaterialButton android:id="@+id/setAlarmBtnOnTimePhone" android:contentDescription="Zil Sesi Seç" app:icon="@drawable/ic_melody" style="@style/ButtonTheme" /-->
         </com.google.android.material.button.MaterialButtonToggleGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout style="@style/TimeSoundConstraintStyle">
-        <androidx.appcompat.widget.AppCompatImageButton android:id="@+id/setAlarmBtnOnTimePlay" android:contentDescription="Dinle" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:srcCompat="@drawable/ic_alarm_play" style="@style/PlayButtonStyle" />
+    <androidx.constraintlayout.widget.ConstraintLayout  style="@style/TimeSoundConstraintStyle">
+        <androidx.appcompat.widget.AppCompatImageButton android:visibility="gone" android:id="@+id/setAlarmBtnOnTimePlay" android:contentDescription="Dinle" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:srcCompat="@drawable/ic_alarm_play" style="@style/PlayButtonStyle" />
         <androidx.appcompat.widget.AppCompatTextView android:id="@+id/setAlarmTvOnTimeSelectedSoundStr" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@+id/setAlarmTvOnTimeSelectSoundBtn" app:layout_constraintStart_toEndOf="@+id/setAlarmBtnOnTimePlay" app:layout_constraintTop_toTopOf="parent" style="@style/SelectedSoundStr" />
         <androidx.appcompat.widget.AppCompatTextView android:visibility="gone" android:id="@+id/setAlarmTvOnTimeSelectSoundBtn" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/SelectSoundBtn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -33,7 +33,7 @@
         </com.google.android.material.button.MaterialButtonToggleGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/TimeSoundConstraintStyle">
-        <androidx.appcompat.widget.AppCompatImageButton android:id="@+id/setAlarmBtnBeforeTimePlay" android:contentDescription="Dinle" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:srcCompat="@drawable/ic_alarm_play" style="@style/PlayButtonStyle" />
+        <androidx.appcompat.widget.AppCompatImageButton android:visibility="gone" android:id="@+id/setAlarmBtnBeforeTimePlay" android:contentDescription="Dinle" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:srcCompat="@drawable/ic_alarm_play" style="@style/PlayButtonStyle" />
         <androidx.appcompat.widget.AppCompatTextView android:id="@+id/setAlarmTvBeforeTimeSelectedSoundStr" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@+id/setAlarmTvBeforeTimeSelectSoundBtn" app:layout_constraintStart_toEndOf="@+id/setAlarmBtnBeforeTimePlay" app:layout_constraintTop_toTopOf="parent" style="@style/SelectedSoundStr" />
         <androidx.appcompat.widget.AppCompatTextView android:id="@+id/setAlarmTvBeforeTimeSelectSoundBtn" android:visibility="gone" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/SelectSoundBtn" />
     </androidx.constraintlayout.widget.ConstraintLayout>

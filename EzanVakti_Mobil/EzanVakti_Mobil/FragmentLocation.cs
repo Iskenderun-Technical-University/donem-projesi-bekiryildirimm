@@ -31,7 +31,7 @@ namespace EzanVakti_Mobil
 
              base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_bottomsheet_location, container, false);
-            view.FindViewById<AppCompatTextView>(Resource.Id.CurrentLocationtxt).Text = namazVaktiApi.fulladres.Replace(",", "/");
+            view.FindViewById<AppCompatTextView>(Resource.Id.CurrentLocationtxt).Text = namazVaktiApi.fulladres.Replace(", ", "/");
             return view;
         }
     }

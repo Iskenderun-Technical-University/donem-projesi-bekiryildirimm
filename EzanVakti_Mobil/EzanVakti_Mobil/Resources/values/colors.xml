@@ -18,4 +18,5 @@
 	<color name="clrBottomSheetBg">#ffffffff</color>
 	<color name="clrPrimaryTransparent25">#40f0b648</color>
 	<color name="clrBlackTransparent75">#bf000000</color>
+	<color name="clrsolid">#55000000</color>
 </resources>

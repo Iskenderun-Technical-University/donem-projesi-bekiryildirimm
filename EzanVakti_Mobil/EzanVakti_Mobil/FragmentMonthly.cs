@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AndroidX.RecyclerView.Widget;
+using static Android.Icu.Util.Calendar;
 
 namespace EzanVakti_Mobil
 {
@@ -22,7 +23,7 @@ namespace EzanVakti_Mobil
     {
         bool hangisi=false;
         namazVaktiData ezan;
-        List<namazVaktiData> data;
+        List<namazVaktiData> data,monthlyData;
         veritabani veriTabani;
         RecyclerView recyclerView;
         recyclerViewMonthly adapter;
@@ -37,10 +38,21 @@ namespace EzanVakti_Mobil
             hangisi = Arguments.GetBoolean("status");
             ezan = new namazVaktiData();
             data = new List<namazVaktiData>();
-
+            monthlyData = new List<namazVaktiData>();
+            DateTime bugun = DateTime.Now;
             veriTabani = new veritabani();
             data = veriTabani.selectTable("NamazVakti.db");
-            adapter = new recyclerViewMonthly(this, data, hangisi);
+            int i = 0;
+            foreach (var item in data)
+            {
+                if ((bugun.Day <= item.GregDay && bugun.Month == item.GregMonthNumber)||i<30&&i!=0)
+                {
+                    monthlyData.Add(item);
+                    i++;
+                }
+            }
+
+            adapter = new recyclerViewMonthly(this, monthlyData, hangisi);
  
 
             // Create your fragment here

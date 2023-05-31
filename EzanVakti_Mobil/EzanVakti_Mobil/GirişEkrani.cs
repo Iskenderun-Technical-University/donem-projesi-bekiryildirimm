@@ -46,8 +46,13 @@ namespace EzanVakti_Mobil
                 await vakitOncesiDataBaseOlustur();
                 await vaktindeDatabaseOlustur();
                await namazVakti.EzanSqlite();
-               namazVakti.CurrentInsertTable();
+                namazVakti.CurrentInsertTable();
                 namazVakti.LocationInsertTable();
+                DateTime plusOne = dt.AddMonths(1);
+                namazVaktiApi.ay = plusOne.Month;
+                await namazVakti.EzanSqlite();
+              
+
                 StartActivity(new Intent(ApplicationContext, typeof(MainActivity)));
                 this.Finish();
             };

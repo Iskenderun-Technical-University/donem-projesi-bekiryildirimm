@@ -28,7 +28,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/clytIsha" android:layout_marginEnd="8.0dip" style="@style/PrayerTimeClytStyle" android:onClick="yatsiClick">
         <androidx.appcompat.widget.AppCompatImageView android:id="@+id/imgIshaIc" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:srcCompat="@drawable/ic_prayer_time_isha" style="@style/PrayerTimeIconStyle" />
-        <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tvIshaTitle" android:text="Yatsı" app:layout_constraintBottom_toTopOf="@+id/imgIshaIc" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="@+id/imgIshaIc" style="@style/PrayerTimeTitleStyle" />
+        <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tvIshaTitle" android:text="Yatsı" app:layout_constraintBottom_toTopOf="@+id/imgIshaIc" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" android:textStyle="normal" app:layout_constraintTop_toTopOf="@+id/imgIshaIc" style="@style/PrayerTimeTitleStyle" />
         <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tvYatsi" app:layout_constraintBottom_toBottomOf="@+id/imgIshaIc" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/imgIshaIc" style="@style/PrayerTimeStyle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>
