@@ -10221,19 +10221,19 @@ namespace EzanVakti_Mobil
 			public const int bsLocationChooserImglist = 2131230836;
 			
 			// aapt resource value: 0x7F080075
-			public const int bsLocationsEditBtnAddLocation = 2131230837;
+			public const int bsLocationsEditImgCloseBtn = 2131230837;
 			
 			// aapt resource value: 0x7F080076
-			public const int bsLocationsEditImgCloseBtn = 2131230838;
+			public const int bsLocationsEditImgOkBtn = 2131230838;
 			
 			// aapt resource value: 0x7F080077
-			public const int bsLocationsEditImgOkBtn = 2131230839;
+			public const int bsLocationsEditMainClyt = 2131230839;
 			
 			// aapt resource value: 0x7F080078
-			public const int bsLocationsEditMainClyt = 2131230840;
+			public const int bsLocationsEditViewLine1 = 2131230840;
 			
 			// aapt resource value: 0x7F080079
-			public const int bsLocationsEditViewLine1 = 2131230841;
+			public const int bsLocationsUpdateBtn = 2131230841;
 			
 			// aapt resource value: 0x7F08007A
 			public const int bsMonthlyLlytPrayerTimes = 2131230842;

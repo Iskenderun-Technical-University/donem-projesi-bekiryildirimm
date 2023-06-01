@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Database.Sqlite;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -16,7 +17,7 @@ namespace EzanVakti_Mobil.Resources.VeriTabani
 {
     public class veritabani
     {
-        string folder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+       static string folder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
         public bool createDataBase(string dbName)
         {
             
@@ -29,7 +30,7 @@ namespace EzanVakti_Mobil.Resources.VeriTabani
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLiteEx", e.Message);
                 return false;
@@ -45,7 +46,7 @@ namespace EzanVakti_Mobil.Resources.VeriTabani
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLite Ex", e.Message);
                 return false;
@@ -73,13 +74,30 @@ namespace EzanVakti_Mobil.Resources.VeriTabani
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLite Ex", e.Message);
                 return false;
             }
         }
+        public static bool deleteFileTable()
+        {
+            try
+            {
 
+                var path = System.IO.Path.Combine(folder, "NamazVakti.db");
+
+                SQLiteDatabase.DeleteDatabase(new Java.IO.File(path));
+                return true;
+
+            }
+
+            catch (SQLite.SQLiteException e)
+            {
+                Log.Info("SQLite Ex", e.Message);
+                return false;
+            }
+        }
         public bool deleteTable(object obj,string dbName)
         {
             try
@@ -90,7 +108,7 @@ namespace EzanVakti_Mobil.Resources.VeriTabani
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLite Ex", e.Message);
                 return false;

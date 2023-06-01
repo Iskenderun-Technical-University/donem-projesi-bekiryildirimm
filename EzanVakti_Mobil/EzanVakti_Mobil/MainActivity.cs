@@ -34,8 +34,7 @@ using System.Drawing;
 using Android.Graphics;
 using Android.Graphics.Drawables.Shapes;
 using Java.Time.Format;
-//using System.Timers;
-//using System.Threading.Timer;
+
 
 namespace EzanVakti_Mobil
 {
@@ -65,7 +64,7 @@ namespace EzanVakti_Mobil
         VaktindeAlarmDatabase vaktindeDatabase;
 
 
-        // CountDownTimer count;
+  
         string[] vakit = {
         "İMSAK VAKTİNE KALAN ",
         " GÜNEŞ VAKTİNE KALAN ",
@@ -109,33 +108,7 @@ namespace EzanVakti_Mobil
            ikindiTv = FindViewById<AppCompatTextView>(Resource.Id.tvIkindi);
             aksamTv= FindViewById<AppCompatTextView>(Resource.Id.tvAksam);
             yatsiTv = FindViewById<AppCompatTextView>(Resource.Id.tvYatsi);
-            //   var dr=(VectorDrawable)imgYatsi.Drawable;
-            // dr.SetTint(Resource.Color.colorPrimary);
-            /*imgYatsi.SetImageResource(Resource.Drawable.ic_prayer_time_isha_primary_color);
-            Android.Graphics.Color colorPrm = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimary));
-            Android.Graphics.Color colorPrmDark = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimaryDark));
-            var shape = yatsiclyt.Background as GradientDrawable;
-            yatsiTitle.SetTextColor(colorPrm);
-            yatsiTv.SetTextColor(colorPrm);
-            int dark = Resource.Color.colorPrimaryDark;
-            int[] color = new int[3] { dark, dark, dark };
-            
-            //  color = { Resource.Color.colorPrimaryDark };
-           // shape.SetColors(color);
-            shape.SetStroke(2, colorPrm);*/
-           // shape.SetColor(dark);
-     //       yatsiclyt.SetBackgroundColor(colorPrmDark);
-   //         shape.
-           // shape.SetGradientType(GradientType.RadialGradient);
-            //  shape.SetColorFilter(colorPrm, PorterDuff.Mode.);
-            //  shape.SetColor(colorPrm);
-            //  shape.SetTint(Android.Graphics.Color.Black);
 
-
-            // shape.
-            //     dr.SetTint(Resource.Color.colorPrimary);
-            //   dr.SetColorFilter(colorPrm,PorterDuff.Mode.Add);
-            //  Android.Graphics.Color color=new Android.Graphics.Color(ContextCompat.GetColor())
             imsakclyt.Click += delegate
             {
                 imsakClick(v);
@@ -170,8 +143,7 @@ namespace EzanVakti_Mobil
             menubtn.Click += delegate
             {
                 onMainClick(v);
-                /*Drawable backgnd = menubtn.Background;
-                backgnd.SetTint(Resource.Color.colorPrimary);*/
+
             };
 
             hicritxt.Click += delegate
@@ -289,10 +261,6 @@ namespace EzanVakti_Mobil
                 diyanet.Visibility = Android.Views.ViewStates.Visible;
             }
 
-                //Diyanet diyanetWeb1 = new Diyanet();
-                //await diyanetWeb1.CallTakvimArka();
-            //    FindViewById<AppCompatTextView>(Resource.Id.frgLocTvCalendarFront).Text = diyanetWeb1.TakvimOn;
-              //  FindViewById<ConstraintLayout>(Resource.Id.clytTakvimOn).Visibility = Android.Views.ViewStates.Visible;
 
             try
             {
@@ -360,15 +328,6 @@ namespace EzanVakti_Mobil
             fragmentAlarm.Show(manager, "dialog");
         }
 
-       /* public static void cal()
-        {
-                        MediaPlayer media = new MediaPlayer();
-            AssetManager asset = this.Assets;
-            AssetFileDescriptor desc = asset.OpenFd("sounds/uyaritonu.mp3");
-           await media.SetDataSourceAsync(desc);
-            media.Prepare();
-            media.Start();
-        }*/
 
         
         public void gunesClick(View v)
@@ -434,7 +393,7 @@ namespace EzanVakti_Mobil
         {
             vaktinde = new VaktindeAlarmAyarlari();
             vaktindeDatabase = new VaktindeAlarmDatabase();
-            //vaktindeDatabase.createDataBaseVaktindeAlarm();
+        
             vaktinde.imsakAlarm = false;
             vaktinde.gunesAlarm = false;
             vaktinde.ogleAlarm = false;
@@ -478,9 +437,7 @@ namespace EzanVakti_Mobil
         }
         public void onMainClick(View v)
         {
-            //AndroidX.AppCompat.Widget.PopupMenu menu = new AndroidX.AppCompat.Widget.PopupMenu(this, menubtn);
-            //menu.MenuInflater.Inflate(Resource.Layout.activity_first_screen);
-         //   StartActivity(new Intent(ApplicationContext, typeof(MenuActivity)));
+
             StartActivityForResult(new Intent(ApplicationContext, typeof(MenuActivity)), 12);
 
         }
@@ -496,7 +453,7 @@ namespace EzanVakti_Mobil
             var requestCod = (int)millisec / 1000;
             var textTimer = new StringBuilder();
             var intent=new Intent(ApplicationContext, typeof(MyAlarmReceiver));
-            //intent.PutExtra("Request_Code", requestCod);
+      
             intent.AddFlags(ActivityFlags.IncludeStoppedPackages);
             intent.AddFlags(ActivityFlags.ReceiverForeground);
             var pi = PendingIntent.GetBroadcast(this, requestCod, intent, 0);
@@ -525,8 +482,7 @@ namespace EzanVakti_Mobil
         public long date2mSecond(int yil, int ay, int gun, int saat, int dakika, int saniye,int minusdk)
         {
             DateTime dt1 = new DateTime(yil, ay, gun, saat, dakika, saniye);
-            //  DateTime.Parse(dt1).Subtract(TimeSpan.FromMinutes((double)minusdk));
-            //DateTime.Parse(.ToString("HH:mm:ss tt")));
+
             DateTime simdi = DateTime.Now;
             if(simdi.CompareTo(dt1.Subtract(TimeSpan.FromMinutes((double)minusdk))) >0)
             {
@@ -559,9 +515,7 @@ namespace EzanVakti_Mobil
             }
             foreach (var ezan1 in alarmweeklydata)
                 {
-           // DateTime imsakDate = new DateTime(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.imsak.Remove(2)), Int32.Parse(ezan1.imsak.Remove(0, 3)), 0);
-           // DateTimeOffset imsakOffset = DateTimeOffset.Parse(imsakDate.ToString());
-            //long imsakMs = imsakOffset.ToUnixTimeMilliseconds();
+
 
                 
                 setAlarm(date2mSecond(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.imsak.Remove(2)), Int32.Parse(ezan1.imsak.Remove(0, 3)), 0), vaktinde.imsakAlarm);
@@ -597,131 +551,12 @@ namespace EzanVakti_Mobil
 
 
 
-                /* DateTime gunesDate = new DateTime(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.gunes.Remove(2)), Int32.Parse(ezan1.gunes.Remove(0, 3)), 0);
-                 DateTimeOffset gunesOffset = DateTimeOffset.Parse(gunesDate.ToString());
-                 long gunesMs = gunesOffset.ToUnixTimeMilliseconds();
-
-
-                 DateTime ogleDate = new DateTime(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.ogle.Remove(2)), Int32.Parse(ezan1.ogle.Remove(0, 3)), 0);
-                 DateTimeOffset ogleOffset = DateTimeOffset.Parse(ogleDate.ToString());
-                 long ogleMs = ogleOffset.ToUnixTimeMilliseconds();
-                 setAlarm(date2mSecond(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.ogle.Remove(2)), Int32.Parse(ezan1.ogle.Remove(0, 3)), 0), vaktinde.ogleAlarm);
-
-                 DateTime ikindiDate = new DateTime(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.ikindi.Remove(2)), Int32.Parse(ezan1.ikindi.Remove(0, 3)), 0);
-                 DateTimeOffset ikindiOffset = DateTimeOffset.Parse(ikindiDate.ToString());
-                 long ikindiMs = ikindiOffset.ToUnixTimeMilliseconds();
-
-
-                 DateTime aksamDate = new DateTime(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.aksam.Remove(2)), Int32.Parse(ezan1.aksam.Remove(0, 3)), 0);
-                 DateTimeOffset aksamOffset = DateTimeOffset.Parse(aksamDate.ToString());
-                 long aksamMs = aksamOffset.ToUnixTimeMilliseconds();
-                 setAlarm(date2mSecond(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.aksam.Remove(2)), Int32.Parse(ezan1.aksam.Remove(0, 3)), 0), vaktinde.aksamAlarm);
-
-                 DateTime yatsiDate = new DateTime(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.yatsi.Remove(2)), Int32.Parse(ezan1.yatsi.Remove(0, 3)), 0);
-                 DateTimeOffset yatsiOffset = DateTimeOffset.Parse(yatsiDate.ToString());
-                 long yatsiMs = yatsiOffset.ToUnixTimeMilliseconds();
-
-
-
-                 date2mSecond(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.gunes.Remove(2)), Int32.Parse(ezan1.gunes.Remove(0, 3)), 0);
-                 date2mSecond(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.ogle.Remove(2)), Int32.Parse(ezan1.ogle.Remove(0, 3)), 0);
-                 date2mSecond(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.ikindi.Remove(2)), Int32.Parse(ezan1.ikindi.Remove(0, 3)), 0);
-                 date2mSecond(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.aksam.Remove(2)), Int32.Parse(ezan1.aksam.Remove(0, 3)), 0);
-                 date2mSecond(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.yatsi.Remove(2)), Int32.Parse(ezan1.yatsi.Remove(0, 3)), 0);
-                  * DateTime dt1 = new DateTime(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.gunes.Remove(2)), Int32.Parse(ezan1.gunes.Remove(0, 3)), 0);
-                  DateTimeOffset dateOffsetValue1 = DateTimeOffset.Parse(dt1.ToString());
-                  var am1 = GetSystemService(Android.Content.Context.AlarmService) as AlarmManager;
-                  var millisec1 = dateOffsetValue1.ToUnixTimeMilliseconds();
-                  var requestCod1 = (int)millisec1 / 1000;
-                  var textTimer1 = new StringBuilder();
-                  var intent1 = new Intent(ApplicationContext, typeof(MyAlarmReceiver));
-                  //intent.PutExtra("Request_Code", requestCod);
-                  intent.AddFlags(ActivityFlags.IncludeStoppedPackages);
-                  intent.AddFlags(ActivityFlags.ReceiverForeground);
-                  var pi1 = PendingIntent.GetBroadcast(this, requestCod1, intent1, 0);
-                  if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.M)
-                      am1.SetExactAndAllowWhileIdle(AlarmType.RtcWakeup, millisec1, pi1);
-                  else
-                      am1.SetExact(AlarmType.RtcWakeup, millisec1, pi1);
-                  if (!vaktinde.gunesAlarm)
-                      am1.Cancel(pi1);
-
-                  DateTime dt2 = new DateTime(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.ogle.Remove(2)), Int32.Parse(ezan1.ogle.Remove(0, 3)), 0);
-                  DateTimeOffset dateOffsetValue2 = DateTimeOffset.Parse(dt2.ToString());
-                  var am2 = GetSystemService(Android.Content.Context.AlarmService) as AlarmManager;
-                  var millisec2 = dateOffsetValue2.ToUnixTimeMilliseconds();
-                  var requestCod2 = (int)millisec2 / 1000;
-                  var textTimer2 = new StringBuilder();
-                  var intent2 = new Intent(ApplicationContext, typeof(MyAlarmReceiver));
-                  //intent.PutExtra("Request_Code", requestCod);
-                  intent2.AddFlags(ActivityFlags.IncludeStoppedPackages);
-                  intent2.AddFlags(ActivityFlags.ReceiverForeground);
-                  var pi2 = PendingIntent.GetBroadcast(this, requestCod2, intent2, 0);
-                  if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.M)
-                      am2.SetExactAndAllowWhileIdle(AlarmType.RtcWakeup, millisec2, pi2);
-                  else
-                      am2.SetExact(AlarmType.RtcWakeup, millisec2, pi2);
-                  if (!vaktinde.ogleAlarm)
-                      am2.Cancel(pi2);
-
-                  DateTime dt3 = new DateTime(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.ikindi.Remove(2)), Int32.Parse(ezan1.ikindi.Remove(0, 3)), 0);
-                  DateTimeOffset dateOffsetValue3 = DateTimeOffset.Parse(dt3.ToString());
-                  long millisec3 = dateOffsetValue3.ToUnixTimeMilliseconds();
-                  var requestCod3 = (int)millisec3 / 1000;
-                  var am3 = GetSystemService(Android.Content.Context.AlarmService) as AlarmManager;
-                  var textTimer3 = new StringBuilder();
-                  var intent3 = new Intent(ApplicationContext, typeof(MyAlarmReceiver));
-                  //intent.PutExtra("Request_Code", requestCod);
-                  intent3.AddFlags(ActivityFlags.IncludeStoppedPackages);
-                  intent3.AddFlags(ActivityFlags.ReceiverForeground);
-                  var pi3 = PendingIntent.GetBroadcast(this, requestCod3, intent3, 0);
-                  if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.M)
-                      am3.SetExactAndAllowWhileIdle(AlarmType.RtcWakeup, millisec, pi);
-                  else
-                      am3.SetExact(AlarmType.RtcWakeup, millisec3, pi3);
-                  if (!vaktinde.ikindiAlarm)
-                      am3.Cancel(pi3);*/
-
-                /*  DateTime dt3 = new DateTime(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.aksam.Remove(2)), Int32.Parse(ezan1.ikindi.Remove(0, 3)), 0);
-                  DateTimeOffset dateOffsetValue3 = DateTimeOffset.Parse(dt3.ToString());
-                  var millisec3 = dateOffsetValue.ToUnixTimeMilliseconds();
-                  setAlarm()
-
-                  var am3 = GetSystemService(Android.Content.Context.AlarmService) as AlarmManager;
-                  long millisec3 = dateOffsetValue.ToUnixTimeMilliseconds();
-                  var requestCod3 = (int)millisec / 1000;
-                  var textTimer3 = new StringBuilder();
-                  var intent3 = new Intent(ApplicationContext, typeof(MyAlarmReceiver));
-                  //intent.PutExtra("Request_Code", requestCod);
-                  intent3.AddFlags(ActivityFlags.IncludeStoppedPackages);
-                  intent3.AddFlags(ActivityFlags.ReceiverForeground);
-                  var pi3 = PendingIntent.GetBroadcast(this, requestCod3, intent3, 0);
-                  if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.M)
-                      am3.SetExactAndAllowWhileIdle(AlarmType.RtcWakeup, millisec, pi);
-                  else
-                      am3.SetExact(AlarmType.RtcWakeup, millisec3, pi3);
-                  if (!vaktinde.ikindiAlarm)
-                      am3.Cancel(pi3);*/
 
             }
 
 
 
-            /* DateTime dt = new DateTime(Int32.Parse(ezan1.GregYear), ezan1.GregMonthNumber, ezan1.GregDay, Int32.Parse(ezan1.ikindi.Remove(2)), Int32.Parse(ezan1.ikindi.Remove(0, 3)), 0);
-             DateTimeOffset dateOffsetValue = DateTimeOffset.Parse(dt.ToString());
-             var am = GetSystemService(Android.Content.Context.AlarmService) as AlarmManager;
-             var millisec = dateOffsetValue.ToUnixTimeMilliseconds();
-             var requestCod = (int)millisec / 1000;
-             var textTimer = new StringBuilder();
-             var intent = new Intent(ApplicationContext, typeof(MyAlarmReceiver));
-             //intent.PutExtra("Request_Code", requestCod);
-             intent.AddFlags(ActivityFlags.IncludeStoppedPackages);
-             intent.AddFlags(ActivityFlags.ReceiverForeground);
-             var pi = PendingIntent.GetBroadcast(this, requestCod, intent, 0);
-             if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.M)
-                 am.SetExactAndAllowWhileIdle(AlarmType.RtcWakeup, millisec, pi);
-             else
-                 am.SetExact(AlarmType.RtcWakeup, millisec, pi);*/
+
 
         }
 
@@ -750,10 +585,10 @@ namespace EzanVakti_Mobil
         public void pastPrayerTimebg(int icon, ConstraintLayout vakitClyt, AppCompatTextView title, AppCompatTextView tv, AppCompatImageView iconsrc)
         {
             iconsrc.SetImageResource(icon);
-          //  Drawable shape2 = vakitClyt.Background;
+    
             Android.Graphics.Color colorPrm = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.clrPrayerTimePastIcon));
             Android.Graphics.Color colorPrmDark = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimaryDark));
-        //    var shape = vakitClyt.Background as GradientDrawable;
+        
             title.SetTextColor(colorPrm);
             tv.SetTextColor(colorPrm);
             int dark = Resource.Color.colorPrimaryDark;
@@ -761,12 +596,7 @@ namespace EzanVakti_Mobil
 
 
             vakitClyt.SetBackgroundResource(Resource.Drawable.bg_background_prayer);
-           // shape.SetStroke(2, colorPrm);
-            
-
-
-           // shape.SetColors(color);
-
+    
         }
 
         private void setAlarm(long millisec,bool kontrol)
@@ -778,7 +608,7 @@ namespace EzanVakti_Mobil
             StringBuilder textTimer = new StringBuilder();
             
             Intent intent = new Intent(ApplicationContext, typeof(MyAlarmReceiver));
-            //intent.PutExtra("Request_Code", requestCod);
+          
             intent.AddFlags(ActivityFlags.IncludeStoppedPackages);
             intent.AddFlags(ActivityFlags.ReceiverForeground);
             var pi = PendingIntent.GetBroadcast(this, requestCod, intent, 0);
@@ -790,11 +620,9 @@ namespace EzanVakti_Mobil
             if (!kontrol||millisec==0)
                 am.Cancel(pi);
         }
-        void bekir(object sender, EventArgs e)
+        void EzanTimer(object sender, EventArgs e)
         {
-         //   DateTime simdi = DateTime.Now;
-          // FindViewById<TextSwitcher>(Resource.Id.KalanVakit).SetCurrentText("TT");
-        // FindViewById<TextSwitcher>(Resource.Id.KalanZaman).SetCurrentText(simdi.ToString("HH:mm:ss tt"));
+   
             FindViewById<AppCompatTextView>(Resource.Id.mainYerelSaat).Text = DateTime.Now.ToString("HH:mm");
 
             DateTime simdi = DateTime.Now;
@@ -848,37 +676,14 @@ namespace EzanVakti_Mobil
                 pastPrayerTimebg(Resource.Drawable.ic_prayer_time_sun_past, gunesclyt, gunesTitle, gunesTv, imgGunes);
                 pastPrayerTimebg(Resource.Drawable.ic_prayer_time_dhuhr_past, ogleclyt, ogleTitle, ogleTv, imgOgle);
                 currentPrayerTimebg(Resource.Drawable.ic_prayer_time_asr_primary_color, ikindiclyt, ikindiTitle, ikindiTv, imgIkindi);
-                //      dhurur.SetTextColor(Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Black));
-                /*      imgYatsi.SetImageResource(Resource.Drawable.ic_prayer_time_isha_primary_color);
-                      Android.Graphics.Color colorPrm = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimary));
-                      Android.Graphics.Color colorPrmDark = new Android.Graphics.Color(ContextCompat.GetColor(this.ApplicationContext, Resource.Color.colorPrimaryDark));
-                      var shape = yatsiclyt.Background as GradientDrawable;
-                      yatsiTitle.SetTextColor(colorPrm);
-                      yatsiTv.SetTextColor(colorPrm);
-                      int dark = Resource.Color.colorPrimaryDark;
-                      int[] color = new int[3] { dark, dark, dark };
 
-                      //  color = { Resource.Color.colorPrimaryDark };
-                      // shape.SetColors(color);
-
-                      var shape2 = yatsiclyt.Background;
-                     // shape2.SetColorFilter(Android.Graphics.Color.Black, PorterDuff.Mode.DstOver);
-                      shape.SetStroke(2, colorPrm);
-                    //  shape.SetGradientType(GradientType.RadialGradient);
-                      // shape.SetColor;
-
-                   //   shape.SetColorFilter(Android.Graphics.Color.Black, PorterDuff.Mode.DstAtop);
-                      //   shape.SetColor(colorPrmDark);
-                      shape.SetColors(color);*/
-                //  yatsiclyt.SetBackgroundResource(Resource.Drawable.bg_background_prayer);
-                // yatsiclyt.Background = Resource.Drawable.bg_background_prayer;
             }
             else if (simdi.Hour <= Int32.Parse(ezan1.yatsi.Remove(2)) && (simdi.Hour < Int32.Parse(ezan1.yatsi.Remove(2)) || simdi.Minute < Int32.Parse(ezan1.yatsi.Remove(0, 3))))
             {
                 kalanVakit.Text = "YATSI EZANINA KALAN";
                 TimeSpan d = DateTime.Parse(ezan1.yatsi).Subtract(DateTime.Parse(simdi.ToString("HH:mm:ss tt")));
                 kalanZaman.Text = d.ToString();
-                //yatsiclyt.SetBackgroundResource(Resource.Drawable.bg_background_prayer);
+
                
 
                 pastPrayerTimebg(Resource.Drawable.ic_prayer_time_fajr_past, imsakclyt, imsakTitle, imsakTv, imgImsak);
@@ -929,52 +734,16 @@ namespace EzanVakti_Mobil
             base.OnResume(); // Always call the superclass first.
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
-            timer.Elapsed += bekir;
+            timer.Elapsed += EzanTimer;
             timer.Start();
 
 
-            /*      text = FindViewById<TextView>(Resource.Id.AnaSayfaTarih);
-                  //   text.Text = "merhaba";
-                  DateTime dt = DateTime.Now;
 
-                  //TimerCallback callback = new TimerCallback(CheckStatus);
-
-
-                  //   var location = await GetCurrentLocation();
-                  /*   namazVaktiApi namazVakti = new namazVaktiApi(location.Latitude.ToString(), location.Longitude.ToString(), dt.Month, dt.Year);
-                       // FindViewById<TextView>(Resource.Id.AnaSayfaTarih).Text = namazVaktiApi.enlem + " " + namazVaktiApi.boylam + " " + namazVaktiApi.ay + " " + namazVaktiApi.yil;
-                      namazVakti.EzanSqlite();
-                  ezan = new namazVaktiData();
-                  List<namazVaktiData> data = new List<namazVaktiData>();
-
-                  veriTabani = new veritabani();
-                  data = veriTabani.selectTable("NamazVakti.db");
-
-
-
-                  foreach (var item in data)
-                  {
-                      if (item.GregDay == bugun.Day)
-                      {
-                          ezan = item;
-                      }
-                  }
-
-                  text.Text = "  " + ezan.GregDay + "\n" + ezan.GregAylar + "\n" + ezan.GregYear;
-                  FindViewById<TextView>(Resource.Id.tvImsak).Text = ezan.imsak;
-                  FindViewById<TextView>(Resource.Id.tvGunes).Text = ezan.gunes;
-                  FindViewById<TextView>(Resource.Id.tvOgle).Text = ezan.ogle;
-                  FindViewById<TextView>(Resource.Id.tvIkindi).Text = ezan.ikindi;
-                  FindViewById<TextView>(Resource.Id.tvAksam).Text = ezan.aksam;
-                  FindViewById<TextView>(Resource.Id.tvYatsi).Text = ezan.yatsi;
-                  //FindViewById<TextView>(Resource.Id.mainYerelSaat).Text =;*/
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            //DateTime simdi = DateTime.Now;
-           // FindViewById<TextSwitcher>(Resource.Id.KalanVakit).SetCurrentText(vakit[0]);
-           // FindViewById<TextSwitcher>(Resource.Id.KalanZaman).SetCurrentText(simdi.ToString("HH:mm:ss tt"));
+
             FindViewById<TextView>(Resource.Id.mainYerelSaat).Text= DateTime.Now.ToString("HH:mm");
         }
 
@@ -984,21 +753,7 @@ namespace EzanVakti_Mobil
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-       /* public static void CheckStatus(Object state)
-        {
-            DebugText debug = new DebugText(
-                "System.Threading.Timer"
-                , 5
-            );
-            TokenDataBase databaseRunTask = TempDataSource();
-            databaseRunTask.SaveDebugTextAsync(debug);
-        }*/
-    /*    protected override void OnResume()
-        {
-            base.OnResume();
-         //   timer = new Timer(TimerCallback);
-           // timer.inter
-        }*/
+
         async Task<Location> GetCurrentLocation()
         {
  

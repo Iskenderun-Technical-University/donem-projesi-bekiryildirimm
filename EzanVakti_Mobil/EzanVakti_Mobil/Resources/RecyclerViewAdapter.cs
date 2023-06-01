@@ -73,29 +73,5 @@ namespace EzanVakti_Mobil.Resources
         }
     }
 
-  /*  public class RecyclerViewAdapter1 : RecyclerView.Adapter
-    {
-        private Activity activity;
-        private List<namazVaktiData> data;
 
-        public RecyclerViewAdapter1(Activity activity, List<namazVaktiData> data)
-        {
-            this.activity = activity;
-            this.data = data;
-        }
-        public override int ItemCount
-        {
-            get { return data.Count; }
-        }
-
-        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
-        {
-            
-        }
-
-        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
-        {
-            throw new NotImplementedException();
-        }
-    }*/
 }

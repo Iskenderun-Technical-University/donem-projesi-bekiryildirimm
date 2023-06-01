@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Database.Sqlite;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -43,7 +44,7 @@ namespace EzanVakti_Mobil.Resources.AyarlarDataBase
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLiteEx", e.Message);
                 return false;
@@ -59,7 +60,7 @@ namespace EzanVakti_Mobil.Resources.AyarlarDataBase
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLite Ex", e.Message);
                 return false;
@@ -88,8 +89,26 @@ namespace EzanVakti_Mobil.Resources.AyarlarDataBase
         {
             using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "Location.db")))
             {
-                //return connection.Table<Current>();
+              
                 connection.Query<Location>("SELECT * from Location where Id=1");
+            }
+        }
+        public static bool deleteFileTable()
+        {
+            try
+            {
+             
+                var path = System.IO.Path.Combine(folder, "Location.db");
+                
+                SQLiteDatabase.DeleteDatabase(new Java.IO.File(path));
+                return true;
+             
+            }
+
+            catch (SQLite.SQLiteException e)
+            {
+                Log.Info("SQLite Ex", e.Message);
+                return false;
             }
         }
         public bool deleteTable(object obj)
@@ -102,7 +121,7 @@ namespace EzanVakti_Mobil.Resources.AyarlarDataBase
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLite Ex", e.Message);
                 return false;

@@ -8,6 +8,7 @@ alpha;obj\Debug\120\res\anim\m3_side_sheet_slide_out.xml
 alpha;obj\Debug\120\res\anim\mtrl_bottom_sheet_slide_in.xml
 alpha;obj\Debug\120\res\anim\mtrl_bottom_sheet_slide_out.xml
 androidx.appcompat.widget.AppCompatButton;obj\Debug\120\res\layout\activity_locations_edit.xml
+androidx.appcompat.widget.AppCompatButton;obj\Debug\120\res\layout\fragment_bottomsheet_location.xml
 androidx.appcompat.widget.AppCompatButton;obj\Debug\120\res\layout\fragment_bottomsheet_set_alarms.xml
 androidx.appcompat.widget.AppCompatCheckBox;obj\Debug\120\res\layout\fragment_bottomsheet_set_alarms.xml
 androidx.appcompat.widget.AppCompatImageButton;obj\Debug\120\res\layout\activity_menu.xml

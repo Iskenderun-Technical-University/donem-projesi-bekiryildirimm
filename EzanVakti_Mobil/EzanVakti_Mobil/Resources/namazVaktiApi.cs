@@ -52,7 +52,7 @@ namespace EzanVakti_Mobil.Resources
         public static string ApiLink(string enlem,string boylam,int yil,int ay)
         {
               return $"https://api.aladhan.com/v1/calendar?latitude={enlem}&longitude={boylam}&&month={ay}&year={yil}&adjustment=1&tune=0,0,-7,5,4,6,6,0";
-           // return $"https://api.aladhan.com/v1/calendar/2023/4?latitude=37.017448347669024&longitude=37.34085951963926&method=13&month=4&year=2023";
+
         }
         public static string GpsApi(string enlem, string boylam)
         {
@@ -61,8 +61,7 @@ namespace EzanVakti_Mobil.Resources
         public static string AdresApi(string enlem, string boylam)
         {
             return $"https://nominatim.openstreetmap.org/reverse.php?lat={enlem}&lon={boylam}&zoom=18&format=jsonv2";
-           // return $"https://geocode.maps.co/reverse?lat={enlem}&lon={boylam}";
-           // return $"https://geocode.maps.co/reverse?lat=37.017448347669024&lon=37.34085951963926";
+
         }
         private async Task<EzanVakti> EzanApi()
         {
@@ -171,7 +170,6 @@ namespace EzanVakti_Mobil.Resources
             await EzanApiCall(list);
             var cityRes = await SehirApi();
 
-          //  namazVaktiApi.cadde = streetRes.address.neighbourhood;
             foreach (var item in cityRes)
             {
                 namazVaktiApi.city = item.name;
@@ -209,7 +207,7 @@ namespace EzanVakti_Mobil.Resources
             {
                 namazVaktiApi.mahalle = streetRes.address.village;
             }
-           // namazVaktiApi.ilce = streetRes.address.county;
+     
             
         }
         public void CurrentInsertTable()

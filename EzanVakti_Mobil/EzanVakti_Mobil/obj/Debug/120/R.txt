@@ -3315,11 +3315,11 @@ int id browser_actions_menu_item_text 0x7f080071
 int id browser_actions_menu_items 0x7f080072
 int id browser_actions_menu_view 0x7f080073
 int id bsLocationChooserImglist 0x7f080074
-int id bsLocationsEditBtnAddLocation 0x7f080075
-int id bsLocationsEditImgCloseBtn 0x7f080076
-int id bsLocationsEditImgOkBtn 0x7f080077
-int id bsLocationsEditMainClyt 0x7f080078
-int id bsLocationsEditViewLine1 0x7f080079
+int id bsLocationsEditImgCloseBtn 0x7f080075
+int id bsLocationsEditImgOkBtn 0x7f080076
+int id bsLocationsEditMainClyt 0x7f080077
+int id bsLocationsEditViewLine1 0x7f080078
+int id bsLocationsUpdateBtn 0x7f080079
 int id bsMonthlyLlytPrayerTimes 0x7f08007a
 int id bsMonthlyLlytWait 0x7f08007b
 int id bsMonthlyProgressBar 0x7f08007c

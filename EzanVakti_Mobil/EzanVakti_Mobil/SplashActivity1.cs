@@ -44,7 +44,7 @@ namespace EzanVakti_Mobil
                 EzanVakti_Mobil.Resources.AyarlarDataBase.Location streetlocation = new EzanVakti_Mobil.Resources.AyarlarDataBase.Location();
                 Current current= new Current();
                 
-                // CurrentDatabase.selectTableCurrent(current);
+            
                 streetlocation = LocationDatabase.selectTable();
                 current = CurrentDatabase.selectTable();
                 namazVaktiApi.city = current.Sehir;

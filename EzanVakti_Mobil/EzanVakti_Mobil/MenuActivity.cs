@@ -88,7 +88,7 @@ namespace EzanVakti_Mobil
         }
         public void onMenuClick(View v) {
             Intent intent = new Intent();
-          //  intent.PutExtra("menu", "konum");
+     
             SetResult(Result.Canceled, intent);
             this.Finish();
         }
@@ -99,16 +99,7 @@ namespace EzanVakti_Mobil
             SetResult(Result.Ok, intent);
             Finish();
            
-           /* Bundle bundle = new Bundle();
-            bundle.PutBoolean("status", true);
 
-            FragmentMonthly aylikfragment = new FragmentMonthly();
-            AndroidX.Fragment.App.FragmentManager manager = this.SupportFragmentManager;
-            aylikfragment.Arguments = bundle;
-            
-            aylikfragment.Show(manager, "dialog");*/
-            
-           // Finish();
 
         }
     }

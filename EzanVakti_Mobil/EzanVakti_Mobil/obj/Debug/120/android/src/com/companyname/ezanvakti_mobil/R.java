@@ -12268,11 +12268,11 @@ public final class R {
     public static final int browser_actions_menu_items=0x7f080072;
     public static final int browser_actions_menu_view=0x7f080073;
     public static final int bsLocationChooserImglist=0x7f080074;
-    public static final int bsLocationsEditBtnAddLocation=0x7f080075;
-    public static final int bsLocationsEditImgCloseBtn=0x7f080076;
-    public static final int bsLocationsEditImgOkBtn=0x7f080077;
-    public static final int bsLocationsEditMainClyt=0x7f080078;
-    public static final int bsLocationsEditViewLine1=0x7f080079;
+    public static final int bsLocationsEditImgCloseBtn=0x7f080075;
+    public static final int bsLocationsEditImgOkBtn=0x7f080076;
+    public static final int bsLocationsEditMainClyt=0x7f080077;
+    public static final int bsLocationsEditViewLine1=0x7f080078;
+    public static final int bsLocationsUpdateBtn=0x7f080079;
     public static final int bsMonthlyLlytPrayerTimes=0x7f08007a;
     public static final int bsMonthlyLlytWait=0x7f08007b;
     public static final int bsMonthlyProgressBar=0x7f08007c;

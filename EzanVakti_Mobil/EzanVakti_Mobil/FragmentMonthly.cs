@@ -29,12 +29,11 @@ namespace EzanVakti_Mobil
         recyclerViewMonthly adapter;
         public async override void OnCreate(Bundle savedInstanceState)
         {
-          //  SetStyle(Android.App.DialogFragmentStyle.Normal, Resource.Style.AppTheme_BottomSheetFragmentStyle);
+       
             base.OnCreate(savedInstanceState);
-            //SetStyle()
-            // SetStyle(Android.App.DialogFragmentStyle.NoTitle, Resource.Style.BottomSheetFragmentStyle);
+   
             SetStyle(BottomSheetDialogFragment.StyleNormal,Resource.Style.BottomSheetFragmentStyle);
-           // await Task.Delay(TimeSpan.FromSeconds(3));
+ 
             hangisi = Arguments.GetBoolean("status");
             ezan = new namazVaktiData();
             data = new List<namazVaktiData>();
@@ -81,7 +80,7 @@ namespace EzanVakti_Mobil
         }
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
-          //  Dialog.Window.RequestFeature(WindowFeatures.NoTitle);
+         
             base.OnActivityCreated(savedInstanceState);
             Dialog.Window.Attributes.WindowAnimations = Resource.Style.Animation_Design_BottomSheetDialog;
             

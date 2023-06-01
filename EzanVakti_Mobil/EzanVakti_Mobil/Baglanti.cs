@@ -7,7 +7,7 @@ namespace EzanVakti_Mobil
         [System.Obsolete]
         public override bool ShouldOverrideUrlLoading(WebView view, string url)
         {
-           // return base.ShouldOverrideUrlLoading(view, url);
+           
            view.LoadUrl(url);
             return true;
         }

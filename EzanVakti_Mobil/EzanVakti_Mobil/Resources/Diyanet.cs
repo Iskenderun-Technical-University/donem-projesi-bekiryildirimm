@@ -57,25 +57,7 @@ namespace EzanVakti_Mobil.Resources
             }
            
             
-            /*  HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("https://www.diyanethaber.com.tr/diyanet-takvimi");
-            HtmlDocument html = new HtmlDocument();
-            html.LoadHtml(response);
-            var Links = html.DocumentNode;
 
-            var a = Links.SelectNodes("/html/body/main/div/div[2]/div[3]/div/div[1]/div[1]/div[1]/div[1]/a")[0];
-            string link = "https://www.diyanethaber.com.tr" + a.Attributes["href"].Value;
-            List<string> DLink = new List<string>();
-            var response2 = await client.GetStringAsync(link);
-            HtmlDocument htmlDoc = new HtmlDocument();
-            htmlDoc.LoadHtml(response2);
-            var programmerLinks = htmlDoc.DocumentNode;
-
-            string ba = programmerLinks.SelectNodes("/html/body/main/div/div[3]/div[2]/div/div/div[1]/div[3]/div/p[1]")[0].InnerText;
-            var baslik = programmerLinks.SelectNodes("/html/head/meta[8]")[0];
-            string TakvimTitle = baslik.Attributes["content"].Value;
-            TakvimArka = ba;
-            titleTakvimarka=TakvimTitle.ToUpper();*/
 
         }
      public async Task CallBirAyet()

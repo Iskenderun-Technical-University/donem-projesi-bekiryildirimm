@@ -118,11 +118,6 @@ namespace EzanVakti_Mobil
             vakitOncesiDatabase.InsertIntoTableVaktindeAlarm(vakitOncesi);
             return Task.CompletedTask;
         }
-       /* protected override void OnDisappearing()
-        {
-            if (cts != null && !cts.IsCancellationRequested)
-                cts.Cancel();
-            base.OnDisappearing();
-        }*/
+
     }
 }

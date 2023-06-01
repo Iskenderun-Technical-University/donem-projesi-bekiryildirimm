@@ -33,11 +33,6 @@ namespace EzanVakti_Mobil.Resources.Services
            htmlMetni = streamTask;
            return streamTask;
         }
-        /*public string htmlAyristirma(string XPath)
-        {
-            bhtml.LoadHtml(htmlMetni);
-            var texts = bhtml.DocumentNode;
-            return texts.SelectNodes()
-        }*/
+
     }
 }

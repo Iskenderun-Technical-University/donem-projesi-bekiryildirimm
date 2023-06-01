@@ -28,7 +28,7 @@ namespace EzanVakti_Mobil.Resources
         public View cizgi { get; set; }
         public recMonthly(View view) : base(view)
         {
-            //var view = convertView ?? activity.LayoutInflater.Inflate(Resource.Layout.item_aylik_prayer_time, parent, false);
+ 
             HaftaninGunu = view.FindViewById<TextView>(Resource.Id.itemMonthlyTvDay);
             tarih= view.FindViewById<TextView>(Resource.Id.itemMonthlyTvDate);
             aylikImsak = view.FindViewById<TextView>(Resource.Id.itemMonthlyTvFajr);
@@ -37,16 +37,7 @@ namespace EzanVakti_Mobil.Resources
             aylikIkindi = view.FindViewById<TextView>(Resource.Id.itemMonthlyTvAsr);
             aylikAksam = view.FindViewById<TextView>(Resource.Id.itemMonthlyTvMaghrib);
             aylikYatsi = view.FindViewById<TextView>(Resource.Id.itemMonthlyTvIsha);
-            //cizgi = view.FindViewById<View>(Resource.Id.itemaylikLine);
-            /*  HaftaninGunu.Text = data[position].GregHaftaninGunuKisa;
-              aylikImsak.Text = data[position].imsak;
-              aylikGunes.Text = data[position].gunes;
-              aylikOgle.Text = data[position].ogle;
-              aylikIkindi.Text = data[position].ikindi;
-              aylikAksam.Text = data[position].aksam;
-              aylikYatsi.Text = data[position].yatsi;
-              return view;
-            */
+
         }
     }
 

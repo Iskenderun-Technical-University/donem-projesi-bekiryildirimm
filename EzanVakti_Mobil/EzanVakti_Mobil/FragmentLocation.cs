@@ -7,6 +7,10 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.Widget;
 using EzanVakti_Mobil.Resources;
+using EzanVakti_Mobil.Resources.AlarmAyarlari;
+using EzanVakti_Mobil.Resources.Ayarlar;
+using EzanVakti_Mobil.Resources.AyarlarDataBase;
+using EzanVakti_Mobil.Resources.VeriTabani;
 using Google.Android.Material.BottomSheet;
 using System;
 using System.Collections.Generic;
@@ -17,6 +21,8 @@ namespace EzanVakti_Mobil
 {
     public class FragmentLocation : BottomSheetDialogFragment
     {
+        AppCompatButton LGuncelle;
+        View v;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -32,7 +38,22 @@ namespace EzanVakti_Mobil
              base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_bottomsheet_location, container, false);
             view.FindViewById<AppCompatTextView>(Resource.Id.CurrentLocationtxt).Text = namazVaktiApi.fulladres.Replace(", ", "/");
+            LGuncelle=view.FindViewById<AppCompatButton>(Resource.Id.bsLocationsUpdateBtn);
+            LGuncelle.Click += delegate
+            {
+                onLocationsEditClick(v);
+            };
             return view;
+        }
+        public void onLocationsEditClick(View v)
+        {
+            CurrentDatabase.deleteFileTable();
+            veritabani.deleteFileTable();
+            VaktindeAlarmDatabase.deleteFileTable();
+            VakitOncesiAlarmDatabase.deleteFileTable();
+            LocationDatabase.deleteFileTable();
+            StartActivity(new Intent(Context, typeof(SplashActivity1)));
+           
         }
     }
 }

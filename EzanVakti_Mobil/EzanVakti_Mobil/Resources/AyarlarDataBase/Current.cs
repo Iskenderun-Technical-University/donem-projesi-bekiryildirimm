@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using SQLite;
 using Android.Util;
+using Android.Database.Sqlite;
 
 namespace EzanVakti_Mobil.Resources.Ayarlar
 {
@@ -22,7 +23,6 @@ namespace EzanVakti_Mobil.Resources.Ayarlar
         public int month { get; set; }
         public int year { get; set; }
 
-    //   public DateTime haftalikDate { get; set; }
 
     }
     public class CurrentDatabase
@@ -36,11 +36,11 @@ namespace EzanVakti_Mobil.Resources.Ayarlar
                 using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "Current.db")))
                 {
                     connection.CreateTable<Current>();
-
+                    
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLiteEx", e.Message);
                 return false;
@@ -56,7 +56,7 @@ namespace EzanVakti_Mobil.Resources.Ayarlar
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLite Ex", e.Message);
                 return false;
@@ -85,7 +85,7 @@ namespace EzanVakti_Mobil.Resources.Ayarlar
         {
             using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "Current.db")))
             {
-                //return connection.Table<Current>();
+             
                 connection.Query<Current>("SELECT * from Current where Id=1");
             }
         }
@@ -95,11 +95,32 @@ namespace EzanVakti_Mobil.Resources.Ayarlar
             {
                 using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, dbName)))
                 {
+                    var path = System.IO.Path.Combine(folder, "Current.db");
                     connection.Delete(obj);
+                    SQLiteDatabase.DeleteDatabase(new Java.IO.File(path));
                     return true;
                 }
             }
-            catch (SQLiteException e)
+
+            catch (SQLite.SQLiteException e)
+            {
+                Log.Info("SQLite Ex", e.Message);
+                return false;
+            }
+        }
+        public static bool deleteFileTable()
+        {
+            try
+            {
+
+                    var path = System.IO.Path.Combine(folder, "Current.db");
+             
+                    SQLiteDatabase.DeleteDatabase(new Java.IO.File(path));
+                    return true;
+          
+            }
+
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLite Ex", e.Message);
                 return false;

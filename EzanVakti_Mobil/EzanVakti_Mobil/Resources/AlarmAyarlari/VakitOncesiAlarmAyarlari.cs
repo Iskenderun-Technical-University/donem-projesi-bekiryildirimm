@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Database.Sqlite;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -51,7 +52,7 @@ namespace EzanVakti_Mobil.Resources.AlarmAyarlari
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLiteEx", e.Message);
                 return false;
@@ -67,7 +68,7 @@ namespace EzanVakti_Mobil.Resources.AlarmAyarlari
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLite Ex", e.Message);
                 return false;
@@ -100,46 +101,23 @@ namespace EzanVakti_Mobil.Resources.AlarmAyarlari
                 connection.Query<VakitOncesiAlarmAyarlari>("UPDATE VakitOncesiAlarmAyarlari set imsakAlarm=?,gunesAlarm=?,ogleAlarm=?,ikindiAlarm=?,aksamAlarm=?,yatsiAlarm=?,imsakdkOncesi=?,gunesdkOncesi=?,ogledkOncesi=?,ikindidkOncesi=?,aksamdkOncesi=?,yatsidkOncesi=? where Id=1", vaktindeAlarm.imsakAlarm, vaktindeAlarm.gunesAlarm, vaktindeAlarm.ogleAlarm, vaktindeAlarm.ikindiAlarm, vaktindeAlarm.aksamAlarm, vaktindeAlarm.yatsiAlarm, vaktindeAlarm.imsakdkOncesi, vaktindeAlarm.gunesdkOncesi, vaktindeAlarm.ogledkOncesi, vaktindeAlarm.ikindidkOncesi, vaktindeAlarm.aksamdkOncesi, vaktindeAlarm.yatsidkOncesi);
             }
         }
-        public void UpdateTableImsak(VakitOncesiAlarmAyarlari vaktindeAlarm)
+
+        public static bool deleteFileTable()
         {
-            using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "VakitOncesiAlarmAyarlari.db")))
+            try
             {
-                connection.Query<VakitOncesiAlarmAyarlari>("UPDATE VakitOncesiAlarmAyarlari set imsakAlarm=?,imsakdkOncesi=? where Id=1", vaktindeAlarm.imsakAlarm, vaktindeAlarm.imsakdkOncesi);
+ 
+                var path = System.IO.Path.Combine(folder, "VakitOncesiAlarmAyarlari.db");
+               
+                SQLiteDatabase.DeleteDatabase(new Java.IO.File(path));
+                return true;
+            
             }
-        }
-        public void UpdateTableGunes(VakitOncesiAlarmAyarlari vaktindeAlarm)
-        {
-            using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "VakitOncesiAlarmAyarlari.db")))
+
+            catch (SQLite.SQLiteException e)
             {
-                connection.Query<VakitOncesiAlarmAyarlari>("UPDATE VakitOncesiAlarmAyarlari set gunesAlarm=?,gunesdkOncesi=? where Id=1", vaktindeAlarm.gunesAlarm, vaktindeAlarm.gunesdkOncesi);
-            }
-        }
-        public void UpdateTableOgle(VakitOncesiAlarmAyarlari vaktindeAlarm)
-        {
-            using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "VakitOncesiAlarmAyarlari.db")))
-            {
-                connection.Query<VakitOncesiAlarmAyarlari>("UPDATE VakitOncesiAlarmAyarlari set ogleAlarm=?,ogledkOncesi=? where Id=1", vaktindeAlarm.ogleAlarm, vaktindeAlarm.ogledkOncesi);
-            }
-        }
-        public void UpdateTableIkindi(VakitOncesiAlarmAyarlari vaktindeAlarm)
-        {
-            using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "VakitOncesiAlarmAyarlari.db")))
-            {
-                connection.Query<VakitOncesiAlarmAyarlari>("UPDATE VakitOncesiAlarmAyarlari set ikindiAlarm=?,ikindidkOncesi=? where Id=1", vaktindeAlarm.ikindiAlarm, vaktindeAlarm.ikindidkOncesi);
-            }
-        }
-        public void UpdateTableAksam(VakitOncesiAlarmAyarlari vaktindeAlarm)
-        {
-            using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "VakitOncesiAlarmAyarlari.db")))
-            {
-                connection.Query<VakitOncesiAlarmAyarlari>("UPDATE VakitOncesiAlarmAyarlari set aksamAlarm=?,aksamdkOncesi=? where Id=1", vaktindeAlarm.aksamAlarm, vaktindeAlarm.aksamdkOncesi);
-            }
-        }
-        public void UpdateTableYatsi(VakitOncesiAlarmAyarlari vaktindeAlarm)
-        {
-            using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "VakitOncesiAlarmAyarlari.db")))
-            {
-                connection.Query<VakitOncesiAlarmAyarlari>("UPDATE VakitOncesiAlarmAyarlari set yatsiAlarm=?,yatsidkOncesi=? where Id=1", vaktindeAlarm.yatsiAlarm, vaktindeAlarm.yatsidkOncesi);
+                Log.Info("SQLite Ex", e.Message);
+                return false;
             }
         }
         public bool deleteTable(object obj)
@@ -152,7 +130,7 @@ namespace EzanVakti_Mobil.Resources.AlarmAyarlari
                     return true;
                 }
             }
-            catch (SQLiteException e)
+            catch (SQLite.SQLiteException e)
             {
                 Log.Info("SQLite Ex", e.Message);
                 return false;

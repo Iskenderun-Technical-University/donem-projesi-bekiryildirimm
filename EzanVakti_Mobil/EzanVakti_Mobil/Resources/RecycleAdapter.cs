@@ -25,7 +25,7 @@ namespace EzanVakti_Mobil.Resources
         public View cizgi { get; set; }
         public RecViewHolder(View view):base(view)
         {
-            //var view = convertView ?? activity.LayoutInflater.Inflate(Resource.Layout.item_weekly_prayer_time, parent, false);
+     
              HaftaninGunu = view.FindViewById<TextView>(Resource.Id.itemWeeklyGun);
              weeklyImsak = view.FindViewById<TextView>(Resource.Id.itemWeeklyImsak);
              weeklyGunes = view.FindViewById<TextView>(Resource.Id.itemWeeklyGunes);
@@ -34,15 +34,7 @@ namespace EzanVakti_Mobil.Resources
              weeklyAksam = view.FindViewById<TextView>(Resource.Id.itemWeeklyAksam);
             weeklyYatsi = view.FindViewById<TextView>(Resource.Id.itemWeeklyYatsi);
             cizgi= view.FindViewById<View>(Resource.Id.itemWeeklyLine);
-            /*  HaftaninGunu.Text = data[position].GregHaftaninGunuKisa;
-              weeklyImsak.Text = data[position].imsak;
-              weeklyGunes.Text = data[position].gunes;
-              weeklyOgle.Text = data[position].ogle;
-              weeklyIkindi.Text = data[position].ikindi;
-              weeklyAksam.Text = data[position].aksam;
-              weeklyYatsi.Text = data[position].yatsi;
-              return view;
-            */
+
         }
     }
 

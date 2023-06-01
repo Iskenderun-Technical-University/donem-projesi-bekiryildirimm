@@ -72,10 +72,10 @@ namespace EzanVakti_Mobil
            
             vaktindeSessiz = view.FindViewById<MaterialButton>(Resource.Id.setAlarmBtnOnTimeMuted);
             vaktindeEzan = view.FindViewById<MaterialButton>(Resource.Id.setAlarmBtnOnTimeAdhan);
-           // vaktindeZilSesi = view.FindViewById<MaterialButton>(Resource.Id.setAlarmBtnOnTimePhone);
+           
             vakitOncesiSessiz = view.FindViewById<MaterialButton>(Resource.Id.setAlarmBtnBeforeTimeMuted);
             vakitOncesiEzan = view.FindViewById<MaterialButton>(Resource.Id.setAlarmBtnBeforeTimeAdhan);
-           // vakitOncesiZilSesi = view.FindViewById<MaterialButton>(Resource.Id.setAlarmBtnBeforeTimePhone);
+        
           
             vaktindeSesOynat = view.FindViewById<AppCompatImageButton>(Resource.Id.setAlarmBtnOnTimePlay);
             vakitOncesiSesOynat = view.FindViewById<AppCompatImageButton>(Resource.Id.setAlarmBtnBeforeTimePlay);
@@ -91,7 +91,7 @@ namespace EzanVakti_Mobil
                 if (alarmName == "imsak")
                 {
 
-                  //vakitOncesi.imsakdkOncesi;
+              
                     mevcutDk = vakitOncesi.imsakdkOncesi;
                     vaktindeSessiz.Checked = !vaktinde.imsakAlarm;
                     vaktindeEzan.Checked = vaktinde.imsakAlarm;
@@ -153,13 +153,12 @@ namespace EzanVakti_Mobil
             vaktindeSessiz.CheckedChange += delegate
             {
                 vaktindeSeciliSes.Text = "Sessiz";
-                //vakitOncesiSeciliSes.Text = vaktindeEzan.Checked.ToString();
+            
             };
             vaktindeEzan.CheckedChange += delegate
             {
                 vaktindeSeciliSes.Text = "Bildirim Açık";
-                //vakitOncesiSeciliSes.Text=Convert.ToInt32(vaktindeEzan.Checked).ToString();
-                //vakitOncesiSeciliSes.Text = TumVakitlerCheckbox.Checked.ToString();
+
             };
             vakitOncesiSessiz.CheckedChange += delegate
             {
@@ -249,8 +248,7 @@ namespace EzanVakti_Mobil
                     }
                     vaktindeDatabase.UpdateTableAll(vaktinde);
                     vakitOncesiDatabase.UpdateTableAll(vakitOncesi);
-                    //  MainActivity main = new MainActivity();
-                    //main.VaktindeSetAlarm();
+  
                     var mainac = (MainActivity)this.Activity;
                     mainac.VaktindeSetAlarm();
                    
