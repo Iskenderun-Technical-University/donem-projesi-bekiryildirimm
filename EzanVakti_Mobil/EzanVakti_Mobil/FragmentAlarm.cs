@@ -64,7 +64,18 @@ namespace EzanVakti_Mobil
 
              base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_bottomsheet_set_alarms, container, false);
-            view.FindViewById<AppCompatTextView>(Resource.Id.setAlarmTvDistrict).Text = namazVaktiApi.city;
+
+
+            string sehir;
+            if (namazVaktiApi.ilce == null)
+            {
+                sehir = namazVaktiApi.city;
+            }
+            else
+            {
+                sehir = namazVaktiApi.city + "/" + namazVaktiApi.ilce;
+            }
+            view.FindViewById<AppCompatTextView>(Resource.Id.setAlarmTvDistrict).Text = sehir;
             view.FindViewById<AppCompatTextView>(Resource.Id.setAlarmTvPrayerTimeTitle).Text = alarmName.ToUpper();
             vaktindeSeciliSes = view.FindViewById<AppCompatTextView>(Resource.Id.setAlarmTvOnTimeSelectedSoundStr);
             vakitOncesiSeciliSes = view.FindViewById<AppCompatTextView>(Resource.Id.setAlarmTvBeforeTimeSelectedSoundStr);

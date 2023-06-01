@@ -72,7 +72,16 @@ namespace EzanVakti_Mobil
             var view = inflater.Inflate(Resource.Layout.fragment_bottomsheet_monthly_prayer_times, container, false);
             recyclerView = view.FindViewById<RecyclerView>(Resource.Id.bsMonthlyRvPrayerTimes);
             recyclerView.SetAdapter(adapter);
-            view.FindViewById<TextView>(Resource.Id.bsMonthlyTvLocation).Text = namazVaktiApi.city;
+            string sehir;
+            if(namazVaktiApi.ilce==null)
+            {
+                sehir = namazVaktiApi.city;
+            }
+            else
+            {
+                sehir = namazVaktiApi.city + "/" + namazVaktiApi.ilce;
+            }
+            view.FindViewById<TextView>(Resource.Id.bsMonthlyTvLocation).Text =sehir;
       
             view.FindViewById<RelativeLayout>(Resource.Id.bsMonthlyLlytWait).Visibility = ViewStates.Gone;
    
